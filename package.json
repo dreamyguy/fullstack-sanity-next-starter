@@ -1,0 +1,79 @@
+{
+  "name": "fullstack-sanity-next-starter",
+  "private": false,
+  "version": "0.0.1",
+  "description": "Full-stack Sanity Next Starter",
+  "main": "package.json",
+  "keywords": [
+    "next",
+    "sanity",
+    "fullstack starter",
+    "sidhree"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dreamyguy/fullstack-sanity-next-starter"
+  },
+  "author": {
+    "name": "Wallace Sidhrée",
+    "url": "http://sidhree.com/"
+  },
+  "contributors": [],
+  "copyright": "Copyright (c) Wallace Sidhrée - All rights reserved.",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dreamyguy/fullstack-sanity-next-starter/issues"
+  },
+  "homepage": "https://github.com/dreamyguy/fullstack-sanity-next-starter#readme",
+  "scripts": {
+    "resetup": "rm -rf .next/ && rm -rf node_modules/ && cd backend/ && rm -rf node_modules/ && cd ../frontend/ && rm -rf node_modules/ && cd .. && yarn setup",
+    "setup": "yarn && cd backend/ && yarn && cd ../frontend/ && yarn && cd ..",
+    "prettier": "prettier --write '**/*.{js,css,scss,html,json}'",
+    "release": "npx bump --commit '🚀 Release v' --tag --push package.json package.json backend/package.json frontend/package.json",
+    "test": "jest",
+    "test:ci": "jest --ci",
+    "test:outputToFile": "jest --json --outputFile=jestOutput.json && prettier --write './jestOutput.json'",
+    "test:watch": "jest --watch --verbose"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.13.10",
+    "@babel/core": "^7.13.10",
+    "@babel/eslint-parser": "^7.13.10",
+    "@babel/preset-env": "^7.13.10",
+    "@babel/preset-react": "^7.12.13",
+    "@jsdevtools/version-bump-prompt": "^6.1.0",
+    "babel-jest": "^26.6.3",
+    "eslint": "^7.22.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-config-prettier": "^8.1.0",
+    "eslint-loader": "^4.0.2",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-prettier": "^3.3.1",
+    "eslint-plugin-react": "^7.22.0",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "husky": "4",
+    "jest": "^26.6.3",
+    "prettier": "^2.2.1"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn test && sh lib/huskyPreCommit.sh"
+    }
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "engines": {
+    "node": "^v14.16.0"
+  }
+}

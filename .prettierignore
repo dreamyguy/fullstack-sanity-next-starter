@@ -1,0 +1,33 @@
+# This file uses '.gitignore' syntax!
+# Unless we specify exceptions all files with these extensions will be prettified:
+# - js
+# - css
+# - scss
+# - html
+# - json
+# - md
+
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# production
+/backend/dist
+/frontend/build
+
+# postcss
+/frontend/styles/main.css
+
+# dependencies (stating 'node_modules' excludes both 'backend' and 'frontend' ones)
+node_modules
+
+# testing
+/frontend/coverage
+
+# next.js
+/frontend/.next/
+/frontend/out/
+
+# vercel
+/frontend/.vercel
+
+# misc
+*.md

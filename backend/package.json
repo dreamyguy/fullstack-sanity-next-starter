@@ -1,0 +1,52 @@
+{
+  "name": "fullstack-sanity-next-starter-backend",
+  "private": false,
+  "version": "0.0.1",
+  "description": "Full-stack Sanity Next Starter - Backend",
+  "main": "package.json",
+  "keywords": [
+    "next",
+    "sanity",
+    "fullstack starter",
+    "sidhree"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dreamyguy/fullstack-sanity-next-starter"
+  },
+  "author": {
+    "name": "Wallace Sidhrée",
+    "url": "http://sidhree.com/"
+  },
+  "contributors": [],
+  "copyright": "Copyright (c) Wallace Sidhrée - All rights reserved.",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dreamyguy/fullstack-sanity-next-starter/issues"
+  },
+  "homepage": "",
+  "scripts": {
+    "start": "sanity start",
+    "test": "sanity check",
+    "deploy:studio": "sanity deploy",
+    "deploy:graphql": "sanity graphql deploy"
+  },
+  "dependencies": {
+    "@sanity/base": "^2.6.0",
+    "@sanity/components": "^2.2.6",
+    "@sanity/core": "^2.6.1",
+    "@sanity/default-layout": "^2.6.0",
+    "@sanity/default-login": "^2.2.6",
+    "@sanity/desk-tool": "^2.6.1",
+    "@sanity/vision": "^2.2.6",
+    "prop-types": "^15.6",
+    "react": "^16.2",
+    "react-dom": "^16.2"
+  },
+  "devDependencies": {
+    "react-icons": "^4.2.0"
+  },
+  "engines": {
+    "node": "^v14.16.0"
+  }
+}

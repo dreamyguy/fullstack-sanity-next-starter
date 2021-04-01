@@ -1,0 +1,20 @@
+[build]
+  base = "frontend"
+  command = "yarn build:netlify"
+  environment = {NODE_ENV = "production", NODE_VERSION = "14.16.0", NODE_OPTIONS = "--max_old_space_size=8192"}
+  publish = "build/"
+[build.processing]
+  skip_processing = true
+
+# Context specific settings - Overrides [build] settings
+
+# -- Nothing here
+
+# Branch specific settings - Overrides any context specific settings
+
+[context.production.environment] # 'production' is a branch name
+# NEXT_ACTIVE_ENV = "production"
+# SANITY_DATASET = "production"
+[context.develop.environment] # 'develop' is a branch name
+# NEXT_ACTIVE_ENV = "development"
+# SANITY_DATASET = "develop"

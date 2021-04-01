@@ -1,0 +1,10 @@
+.cache
+.vscode
+build
+dist
+docs
+node_modules
+public
+
+# Ignore these files are the 'root' level, to avoid 'babel' warnings
+/config.js
