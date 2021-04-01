@@ -2,34 +2,35 @@
 
 > This project is a combination of **Sanity** + **Next**, resulting in a mono-repo that gives us both a **GraphQL** API and a frontend that communicates with it. The frontend features the latest and greatest **TailwindCSS with JIT** ✨.
 
+[![Node Version](https://img.shields.io/badge/node-v14.16.0-brightgreen.svg)](https://github.com/nodejs/node/releases/tag/v14.16.0) [![MIT Licence](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/dreamyguy/fullstack-sanity-next-starter/blob/master/LICENSE) [![GitHub release](https://img.shields.io/github/v/tag/dreamyguy/fullstack-sanity-next-starter.svg?sort=semver)](https://github.com/dreamyguy/fullstack-sanity-next-starter/releases) [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://GitHub.com/dreamyguy/fullstack-sanity-next-starter/graphs/commit-activity) [![GitHub contributors](https://img.shields.io/github/contributors/dreamyguy/fullstack-sanity-next-starter.svg)](https://GitHub.com/dreamyguy/fullstack-sanity-next-starter/graphs/contributors/)
+
 Features:
 
-- **Reinforced Node version** (keep environments in sync)
-- **Code standardisation** (ESLint + Prettier + Editor Config)
-- **Continous Integration** (Unit Testing + Pre-configured Husky + Pre-configured Travis)
-- **Continous Delivery & Hosting** (Pre-configured Netlify)
-- **CLI-based `git` tagging** with SEMVER support
-- **Feature-toggling** from Sanity's end
-- **GraphQL** implementation _detached from React_
-- **Reusable components** with extensive use of hooks whenever relevant
-- **Utilities** that lift complexity from functions that would otherwise be doing too much
-- **GitHub API** feature GitHub projects you created or contribute to
+- **Reinforced Node version** _(keep environments in sync)_
+- **Code standardisation** _(ESLint + Prettier + Editor Config)_
+- **Continous Integration** _(Unit Testing + Pre-configured Husky + Pre-configured Travis)_
+- **Continous Delivery & Hosting** _(Pre-configured Netlify)_
+- **CLI-based `git` tagging** _with SEMVER support_
+- **Feature-toggling** _from Sanity's end_
+- **GraphQL** _implementation **detached** from React_
+- **Reusable components** _with extensive use of hooks whenever relevant_
+- **Utilities** _that lift complexity from functions that would otherwise be doing too much_
 
 Content supported out of the box:
 
 - **Blog**
 - **Musician & Technologist** sections
 - **Music Release** pages: Single, EP & LP views _(Coming soon)_
+- **GitHub API**: feature GitHub projects you created or contribute to _(Coming soon)_
 
 ---
 
-[![Node Version](https://img.shields.io/badge/node-v14.16.0-brightgreen.svg)](https://github.com/nodejs/node/releases/tag/v14.16.0)
+## Build statuses, branches, datasets and URLs
 
-[Netlify project site](https://app.netlify.com/sites/fullstack-sanity-next-starter/overview)
+| Netlify     |      |
+|-------------|------|
+| [![Netlify Status](https://api.netlify.com/api/v1/badges/b0255af3-0289-4a3e-9710-1865701162b1/deploy-status)](https://app.netlify.com/sites/fullstack-sanity-next-starter/deploys) | [Project site](https://app.netlify.com/sites/fullstack-sanity-next-starter/overview) |
 
-## Builds, branches, datasets and URLs
-
-[![Netlify Status](https://api.netlify.com/api/v1/badges/b0255af3-0289-4a3e-9710-1865701162b1/deploy-status)](https://app.netlify.com/sites/fullstack-sanity-next-starter/deploys)
 
 | Branch     | Dataset    | Domain                                                      | Build
 |------------|------------|-------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -95,6 +96,8 @@ This will generate a `jestOutput.json` file at the root of the project. You can 
 
 > 👉  Navigate to the `backend` folder.
 
+    cd backend/
+
 You'll be running 1 separate terminal window, where Sanity Studio will continuously run at.
 
 **Start Sanity Studio** by running:
@@ -105,11 +108,25 @@ You'll be running 1 separate terminal window, where Sanity Studio will continuou
 
     yarn test
 
+**Deploying GraphQL:**
+
+**Sanity** does not support `GraphQL` requests done directly to the local **Sanity Studio** server, as it does not support it natively. [**GraphQL support**](https://www.sanity.io/docs/graphql) is provided through a separate API, which in turn is used to build and deploy a `GraphQL API` based on the latest schema changes.
+
+To make that `GraphQL API` available for the first time (or to update it) one has to deploy it. In **Sanity** that is done through the `sanity graphql deploy` command, but in this project you can do the same by running:
+
+    yarn deploy:graphql
+
+That will make the `GraphQL API` available through a special URL, served by **Sanity's CDN**. The relevant API endpoints are taken care of at the client level by the **_frontend_**, from the [`./frontend/config.js`](./frontend/config.js) file.
+
+---
+
 All available scripts are defined on the `script` section of [backend/package.json](./backend/package.json).
 
 ## Frontend
 
 > 👉  Navigate to the `frontend` folder.
+
+    cd frontend/
 
 **0. Environment variables:**
 
@@ -179,6 +196,6 @@ Several things will happen, in a synchronous manner:
 
 # About
 
-**Gitinsight** was put together by [Wallace Sidhrée][1]. 👨‍💻🇳🇴
+**Full-stack Sanity Next Starter** was put together by [Wallace Sidhrée][1]. 👨‍💻🇳🇴
 
 [1]: https://sidhree.com
