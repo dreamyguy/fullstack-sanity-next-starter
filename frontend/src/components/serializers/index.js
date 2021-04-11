@@ -6,12 +6,22 @@ import dark from 'react-syntax-highlighter/dist/cjs/styles/prism/dark.js';
 // Serialize output of 'code' blocks
 const serializers = {
   types: {
-    author: ({ node }) => node?.author?.name && <span>{node.author.name}</span>,
-    code: ({ node }) => (
-      <SyntaxHighlighter language={node?.language} style={dark}>
-        {node?.code}
-      </SyntaxHighlighter>
-    ),
+    author: ({ node = {} }) => {
+      const { author } = node;
+      return <>{author?.name && <span>{author.name}</span>}</>;
+    },
+    code: ({ node = {} }) => {
+      const { code, language } = node;
+      return (
+        <>
+          {code ? (
+            <SyntaxHighlighter language={language || 'text'} style={dark}>
+              {code}
+            </SyntaxHighlighter>
+          ) : null}
+        </>
+      );
+    },
   },
 };
 
