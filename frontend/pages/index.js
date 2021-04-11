@@ -11,6 +11,7 @@ import sortArrayByKey from '../src/utils/sortArrayByKeyUtil';
 
 // Import components
 import DividerWithTitle from '../src/components/primitives/DividerWithTitle';
+import Wrapper from '../src/components/layout/Wrapper';
 
 export async function getStaticProps() {
   const dataAllProject = await getAllProject();
@@ -59,27 +60,29 @@ const Home = ({
   dataAllProject: { allProject } = {},
   dataSiteSettings: { SiteSettings: { title, shortDescription } = {} } = {},
 }) => (
-  <div className="bg-grey-light h-screen w-screen py-6">
-    <div
-      className="
-        relative
-        max-w-xl
-        mx-auto
-      "
-    >
-      <Head>
-        <title>{title}</title>
-        <meta property="description" content={shortDescription} />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-      <main>
-        <h1 className="text-xl font-bold mb-6">{title}</h1>
-        <h2 className="text-xl font-bold mb-6">{shortDescription}</h2>
-        <DividerWithTitle align="left" title="Projects" classes="mb-8" />
-        <Projects projects={allProject} />
-      </main>
+  <Wrapper pageType="frontpage">
+    <div className="bg-grey-light h-screen w-screen py-6">
+      <div
+        className="
+          relative
+          max-w-xl
+          mx-auto
+        "
+      >
+        <Head>
+          <title>{title}</title>
+          <meta property="description" content={shortDescription} />
+          <link rel="icon" href="/favicon.ico" />
+        </Head>
+        <main>
+          <h1 className="text-xl font-bold mb-6">{title}</h1>
+          <h2 className="text-xl font-bold mb-6">{shortDescription}</h2>
+          <DividerWithTitle align="left" title="Projects" classes="mb-8" />
+          <Projects projects={allProject} />
+        </main>
+      </div>
     </div>
-  </div>
+  </Wrapper>
 );
 
 export default Home;
