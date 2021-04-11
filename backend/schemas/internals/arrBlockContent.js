@@ -61,5 +61,11 @@ export default {
       type: 'image',
       options: { hotspot: true },
     },
+    {
+      type: 'code',
+      options: {
+        theme: 'monokai',
+      },
+    },
   ],
 };

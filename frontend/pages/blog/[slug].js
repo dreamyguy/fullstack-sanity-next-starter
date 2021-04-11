@@ -1,7 +1,9 @@
+/* eslint-disable react/destructuring-assignment */
 /* eslint-disable no-unused-expressions */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import Link from 'next/link';
 import Head from 'next/head';
+import BlockContent from '@sanity/block-content-to-react';
 
 // Import data
 import { getAllPost, getPost, getSiteSettings } from '../../graphql/requests';
@@ -9,10 +11,12 @@ import { getAllPost, getPost, getSiteSettings } from '../../graphql/requests';
 // Import utils
 import { isNotEmptyArray, isNotEmptyObject } from '../../src/utils/isEmptyUtil';
 import sortArrayByKey from '../../src/utils/sortArrayByKeyUtil';
+import serializers from '../../src/components/serializers';
 
 // Use this to debug locally
 const debug = false;
 
+// Get 'id' of post by 'slug'
 const getIdBySlug = (items, slug) => {
   const theItem = items.filter(f => f.slug.current === slug);
   const theItemId = theItem[0]?._id;
@@ -55,8 +59,13 @@ export async function getStaticProps({ params }) {
 
 const Post = ({ post }) => {
   if (post && isNotEmptyObject(post)) {
-    const { title } = post;
-    return <h1 className="mb-8">{title}</h1>;
+    const { bodyRaw, title } = post;
+    return (
+      <>
+        <h1 className="mb-8">{title}</h1>
+        <BlockContent blocks={bodyRaw} serializers={serializers} />
+      </>
+    );
   }
   return null;
 };

@@ -43,6 +43,7 @@ export const postQuery = gql`
       slug {
         current
       }
+      bodyRaw
     }
   }
 `;
