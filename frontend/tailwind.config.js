@@ -66,9 +66,9 @@ module.exports = {
     },
   },
   plugins: [
-    require('@tailwindcss/typography'), // https://github.com/tailwindlabs/tailwindcss-typography
-    require('@tailwindcss/forms'), // https://github.com/tailwindlabs/tailwindcss-forms
-    require('@tailwindcss/line-clamp'), // https://github.com/tailwindlabs/tailwindcss-line-clamp
-    require('@tailwindcss/aspect-ratio'), // https://github.com/tailwindlabs/tailwindcss-aspect-ratio
+    require('@tailwindcss/typography'),
+    require('@tailwindcss/forms'),
+    require('@tailwindcss/line-clamp'),
+    require('@tailwindcss/aspect-ratio'),
   ],
 };
