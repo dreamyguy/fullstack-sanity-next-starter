@@ -1,15 +1,14 @@
-import { MdQueueMusic } from 'react-icons/md';
+import { MdMusicVideo } from 'react-icons/md';
 
 export default {
-  name: 'Genre',
-  title: 'Genre',
+  name: 'ReleaseType',
+  title: 'Release Type',
   type: 'document',
-  icon: MdQueueMusic,
+  icon: MdMusicVideo,
   fields: [
     {
       name: 'title',
       title: 'Title',
-      description: `The name for your genre (i.e. 'Progressive Rock', 'Rock')`,
       type: 'string',
     },
     {
@@ -27,7 +26,7 @@ export default {
     select: {
       title: 'title',
     },
-    prepare({ title = 'New: Music > Genre' }) {
+    prepare({ title = 'New: Music > Release' }) {
       return {
         title: title || 'No title',
       };

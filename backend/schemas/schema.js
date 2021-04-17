@@ -15,14 +15,19 @@ import Author from './blog/docAuthor';
 import Category from './blog/docCategory';
 import Post from './blog/docPost';
 // - Music
+import Artist from './music/docArtist';
+import ArtistURLs from './music/objArtistURLs';
+import Influence from './music/docInfluence';
 import Genre from './music/docGenre';
 import RecordLabel from './music/docRecordLabel';
 import Release from './music/docRelease';
+import ReleaseType from './music/docReleaseType';
 // - Dev
 import GitHubUsername from './development/docGitHubUsername';
 import Portfolio from './development/docPortfolio';
 import Project from './development/docProject';
 // - Settings
+import Contact from './settings/objContact';
 import siteSettings from './settings/docSiteSettings';
 // - Internals, used by Sanity
 import blockContent from './internals/arrBlockContent';
@@ -37,18 +42,23 @@ const types = [
   /* 1. The 'schemaTypes' */
   ...schemaTypes,
   // 2. Add other definitions here
+  Contact,
   // - Blog
   Author,
   Category,
   Post,
   // - Music
-  Genre,
   RecordLabel,
+  Artist,
+  ArtistURLs,
+  Influence,
+  Genre,
   Release,
+  ReleaseType,
   // - Dev
   GitHubUsername,
-  Portfolio,
   Project,
+  Portfolio,
   // 3. Settings
   siteSettings,
   // 4. Internals, used by Sanity

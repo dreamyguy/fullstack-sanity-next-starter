@@ -9,6 +9,8 @@ import {
   MdLibraryMusic,
   MdMemory,
   MdMusicNote,
+  MdMusicVideo,
+  MdPersonPin,
   MdQueueMusic,
   MdSettings,
   MdStar,
@@ -73,6 +75,26 @@ export default () =>
                     .params({ id }),
                 ),
               S.listItem()
+                .title('Artist')
+                .icon(MdAccountCircle)
+                .child(id =>
+                  S.documentList()
+                    .schemaType('Artist')
+                    .title('Artist')
+                    .filter('_type == "Artist"')
+                    .params({ id }),
+                ),
+              S.listItem()
+                .title('Influence')
+                .icon(MdPersonPin)
+                .child(id =>
+                  S.documentList()
+                    .schemaType('Influence')
+                    .title('Influence')
+                    .filter('_type == "Influence"')
+                    .params({ id }),
+                ),
+              S.listItem()
                 .title('Genre')
                 .icon(MdQueueMusic)
                 .child(id =>
@@ -90,6 +112,16 @@ export default () =>
                     .schemaType('Release')
                     .title('Release')
                     .filter('_type == "Release"')
+                    .params({ id }),
+                ),
+              S.listItem()
+                .title('Release Type')
+                .icon(MdMusicVideo)
+                .child(id =>
+                  S.documentList()
+                    .schemaType('ReleaseType')
+                    .title('Release Type')
+                    .filter('_type == "ReleaseType"')
                     .params({ id }),
                 ),
             ]),
@@ -142,16 +174,19 @@ export default () =>
             'siteSettings',
             // blog
             'author',
-            'post',
+            // 'post',
             'category',
-            // Music
-            'Genre',
-            'RecordLabel',
-            'Release',
-            // Dev
-            'GitHubUsername',
-            'Portfolio',
-            'Project',
+            // // Music
+            // 'RecordLabel',
+            // 'Artist',
+            // 'Influence',
+            // 'Genre',
+            // 'Release',
+            // 'ReleaseType',
+            // // Dev
+            // 'GitHubUsername',
+            // 'Portfolio',
+            // 'Project',
           ].includes(listItem.getId()),
       ),
     ]);

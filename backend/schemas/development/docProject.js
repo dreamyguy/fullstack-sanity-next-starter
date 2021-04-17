@@ -1,8 +1,3 @@
-// This represents categories that can be assigned to products
-//
-// Properties
-// - title
-
 import { MdCode } from 'react-icons/md';
 
 export default {
