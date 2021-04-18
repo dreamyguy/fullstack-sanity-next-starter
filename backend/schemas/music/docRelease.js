@@ -36,6 +36,7 @@ export default {
     {
       name: 'albumArt',
       title: 'Album Art',
+      description: `Preferably '3000x3000', it will be resized programmatically for different uses.`,
       type: 'image',
     },
     {
@@ -99,6 +100,12 @@ export default {
       type: 'string',
     },
     {
+      name: 'releaseURLs',
+      title: 'Release URLs',
+      description: 'Please provice the full URL',
+      type: 'ReleaseURLs',
+    },
+    {
       name: 'slogan',
       title: 'Slogan',
       description: 'A short slogan for the release',
@@ -107,22 +114,62 @@ export default {
     {
       name: 'shortDescription',
       title: 'Short description',
-      description: 'A short description for the release',
+      description: 'A short description for the release (max. 160 chars), to be used on SoMe.',
       type: 'text',
       validation: Rule =>
-        Rule.max(160).error('Short description should have maximum 160 characters'),
+        Rule.max(160).error(`'Short description' should have maximum 160 characters`),
     },
     {
-      name: 'description',
-      title: 'Description',
+      name: 'releaseDate',
+      title: 'Release Date',
+      description: `Release date`,
+      type: 'date',
+    },
+    {
+      name: 'releaseArticleDate',
+      title: 'Release Article Date',
+      description: `Release Article / Press Release's publishing date`,
+      type: 'date',
+    },
+    {
+      name: 'releaseArticleAuthor',
+      title: 'Release Article Author',
+      description: `Release Article / Press Release's author`,
+      type: 'string',
+    },
+    {
+      name: 'releaseArticleTitle',
+      title: 'Release Article Title',
+      description: `Release Article / Press Release's title (max. 160 chars)`,
+      type: 'string',
+      validation: Rule =>
+        Rule.max(160).error(`'Release Article Title' should have maximum 160 characters`),
+    },
+    {
+      name: 'releaseArticle',
+      title: 'Release Article',
       type: 'array',
       of: [{ type: 'block' }],
     },
     {
-      name: 'article',
-      title: 'Article',
-      type: 'array',
-      of: [{ type: 'block' }],
+      name: 'showInfluences',
+      title: 'Show Influences',
+      type: 'boolean',
+    },
+    {
+      name: 'showContact',
+      title: 'Show Contact',
+      type: 'boolean',
+    },
+    {
+      name: 'showOtherServices',
+      title: 'Show Other Services',
+      type: 'boolean',
+    },
+    {
+      name: 'showBio',
+      title: 'Show Bio',
+      type: 'boolean',
     },
   ],
   preview: {

@@ -24,6 +24,12 @@ export default {
       description: `The link to the artist on Wikipedia)`,
       type: 'string',
     },
+    {
+      name: 'linkProgArchives',
+      title: 'ProgArchives Link',
+      description: `The link to the artist on ProgArchives)`,
+      type: 'string',
+    },
   ],
   preview: {
     select: {

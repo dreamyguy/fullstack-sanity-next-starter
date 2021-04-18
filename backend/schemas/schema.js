@@ -21,6 +21,7 @@ import Influence from './music/docInfluence';
 import Genre from './music/docGenre';
 import RecordLabel from './music/docRecordLabel';
 import Release from './music/docRelease';
+import ReleaseURLs from './music/objReleaseURLs';
 import ReleaseType from './music/docReleaseType';
 // - Dev
 import GitHubUsername from './development/docGitHubUsername';
@@ -43,6 +44,7 @@ const types = [
   ...schemaTypes,
   // 2. Add other definitions here
   Contact,
+  ReleaseURLs,
   // - Blog
   Author,
   Category,
