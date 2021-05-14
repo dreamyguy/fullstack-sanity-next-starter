@@ -29,6 +29,7 @@ import Portfolio from './development/docPortfolio';
 import Project from './development/docProject';
 // - Settings
 import Contact from './settings/objContact';
+import ImageUnsplash from './settings/objImageUnsplash';
 import siteSettings from './settings/docSiteSettings';
 // - Internals, used by Sanity
 import blockContent from './internals/arrBlockContent';
@@ -45,6 +46,7 @@ const types = [
   // 2. Add other definitions here
   Contact,
   ReleaseURLs,
+  ImageUnsplash,
   // - Blog
   Author,
   Category,

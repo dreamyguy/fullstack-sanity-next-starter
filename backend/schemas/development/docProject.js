@@ -69,25 +69,8 @@ export default {
     },
     {
       name: 'imageUnsplash',
-      title: 'Image from Unsplash',
-      description: `Use in combination with 'Use image from Unsplash' to override an upload and point to the URL you specify here.`,
-      type: 'string',
-      validation: Rule =>
-        Rule.custom(name => {
-          if (typeof name === 'undefined') {
-            return true; // Allow undefined values
-          }
-          // This would crash if we didn't check for undefined values first
-          return !name.match(/^https:\/\/images\.unsplash\.com\/.*/g)
-            ? `The string must be a valid 'Unsplash' image URL!`
-            : true;
-        }).error(),
-    },
-    {
-      name: 'useImageFromUnsplash',
-      title: 'Use image from Unsplash',
-      description: `Use in combination with 'Image from Unsplash' to override an upload and point to the URL you specify there.`,
-      type: 'boolean',
+      title: 'Unsplash',
+      type: 'ImageUnsplash',
     },
     {
       name: 'imageScreenshot',

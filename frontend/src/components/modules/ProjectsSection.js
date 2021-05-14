@@ -41,8 +41,8 @@ const ProjectsSection = ({ pageType, items }) => (
           <div className="mt-12 mx-auto max-w-md px-4 grid gap-8 sm:max-w-lg sm:px-6 lg:px-8 lg:grid-cols-3 lg:max-w-7xl">
             {items.map(item => {
               const imageUrl =
-                item.imageUnsplash && item.useImageFromUnsplash
-                  ? item.imageUnsplash
+                item.imageUnsplash?.url && item.imageUnsplash?.useImageFromUnsplash
+                  ? item.imageUnsplash?.url
                   : item.imageScreenshot?.asset?.url || '';
               return (
                 <div key={item._id} className="flex flex-col rounded-lg shadow-lg overflow-hidden">
