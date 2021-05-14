@@ -17,6 +17,7 @@ import CTASection from '../src/components/modules/CTASection';
 import FeatureSectionWithGrid from '../src/components/modules/FeatureSectionWithGrid';
 import FeatureSectionWithScreenshot from '../src/components/modules/FeatureSectionWithScreenshot';
 import HeroSection from '../src/components/modules/HeroSection';
+import ProjectsSection from '../src/components/modules/ProjectsSection';
 import TestimonialSection from '../src/components/modules/TestimonialSection';
 // Components - primitives
 import DividerWithTitle from '../src/components/primitives/DividerWithTitle';
@@ -67,6 +68,7 @@ const Projects = ({ projects }) => {
 const Home = ({ dataAllProject, dataSiteSettings }) => (
   <Wrapper pageType="frontpage" settings={dataSiteSettings?.SiteSettings}>
     <HeroSection pageType="frontpage" settings={dataSiteSettings?.SiteSettings} />
+    <ProjectsSection pageType="frontpage" />
     <FeatureSectionWithScreenshot pageType="frontpage" />
     <FeatureSectionWithGrid pageType="frontpage" />
     <TestimonialSection pageType="frontpage" />

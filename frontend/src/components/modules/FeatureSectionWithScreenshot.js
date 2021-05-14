@@ -33,7 +33,7 @@ const FeatureSectionWithScreenshot = ({ pageType }) => (
 );
 
 FeatureSectionWithScreenshot.propTypes = {
-  pageType: PropTypes.oneOf(['blog', 'frontpage', 'music', 'portfolio']),
+  pageType: PropTypes.oneOf(['blog', 'frontpage', 'music', 'portfolio', 'project']),
 };
 
 export default FeatureSectionWithScreenshot;

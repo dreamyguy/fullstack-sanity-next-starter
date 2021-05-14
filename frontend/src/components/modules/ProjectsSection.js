@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 // Data - mock
-const blogPosts = [
+const projects = [
   {
     id: 1,
     title: 'Boost your conversion rate',
@@ -62,23 +62,43 @@ const blogPosts = [
   },
 ];
 
-const BlogSection = ({ pageType }) => (
+const ProjectsSection = ({ pageType }) => (
   <>
     {pageType === 'frontpage' ? (
       <div className="relative bg-gray-50 py-16 sm:py-24 lg:py-32">
         <div className="relative">
           <div className="text-center mx-auto max-w-md px-4 sm:max-w-3xl sm:px-6 lg:px-8 lg:max-w-7xl">
-            <h2 className="text-base font-semibold tracking-wider text-cyan-600 uppercase">Blog</h2>
+            <h2 className="text-base font-semibold tracking-wider text-cyan-600 uppercase">
+              Open Source Projects
+            </h2>
             <p className="mt-2 text-3xl font-extrabold text-gray-900 tracking-tight sm:text-4xl">
-              What&apos;s up in my world
+              Rewardingly Fun!
             </p>
             <p className="mt-5 mx-auto max-w-prose text-xl text-gray-500">
-              Articles on JavaScript and beyond, music news, musings on Fantasy books and{' '}
-              <em>small life events from an average dude</em> kind of things.
+              Sometimes you just have to get out of your comfort zone and try something new. Push
+              your own limits. The more mistakes you make the wiser you get, and you could even end
+              up solving real world problems. Either way there&apos;s always a reward at the end of
+              the rainbow!{' '}
+              <span
+                role="img"
+                aria-label="rainbow"
+                className="react-emojis"
+                style={{ lineHeight: 1 }}
+              >
+                🌈
+              </span>
+              <span
+                role="img"
+                aria-label="unicorn"
+                className="react-emojis"
+                style={{ lineHeight: 1 }}
+              >
+                🦄
+              </span>
             </p>
           </div>
           <div className="mt-12 mx-auto max-w-md px-4 grid gap-8 sm:max-w-lg sm:px-6 lg:px-8 lg:grid-cols-3 lg:max-w-7xl">
-            {blogPosts.map(post => (
+            {projects.map(post => (
               <div key={post.id} className="flex flex-col rounded-lg shadow-lg overflow-hidden">
                 <div className="flex-shrink-0">
                   <img className="h-48 w-full object-cover" src={post.imageUrl} alt="" />
@@ -128,8 +148,8 @@ const BlogSection = ({ pageType }) => (
   </>
 );
 
-BlogSection.propTypes = {
+ProjectsSection.propTypes = {
   pageType: PropTypes.oneOf(['blog', 'frontpage', 'music', 'portfolio', 'project']),
 };
 
-export default BlogSection;
+export default ProjectsSection;
