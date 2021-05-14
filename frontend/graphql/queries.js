@@ -54,7 +54,10 @@ export const allProjectQuery = gql`
     allProject {
       _id
       title
-      slug
+      slugDistribution
+      slug {
+        current
+      }
       slogan
       shortDescription
       descriptionRaw
@@ -112,7 +115,10 @@ export const projectQuery = gql`
     Project(id: $id) {
       _id
       title
-      slug
+      slugDistribution
+      slug {
+        current
+      }
       slogan
       shortDescription
       descriptionRaw

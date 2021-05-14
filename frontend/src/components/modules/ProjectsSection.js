@@ -1,68 +1,9 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
 import PropTypes from 'prop-types';
+import Link from 'next/link';
 
-// Data - mock
-const projects = [
-  {
-    id: 1,
-    title: 'Boost your conversion rate',
-    href: '#',
-    date: 'Mar 16, 2020',
-    datetime: '2020-03-16',
-    category: { name: 'Article', href: '#' },
-    imageUrl:
-      'https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1679&q=80',
-    preview:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto accusantium praesentium eius, ut atque fuga culpa, similique sequi cum eos quis dolorum.',
-    author: {
-      name: 'Roel Aufderehar',
-      imageUrl:
-        'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-      href: '#',
-    },
-    readingLength: '6 min',
-  },
-  {
-    id: 2,
-    title: 'How to use search engine optimization to drive sales',
-    href: '#',
-    date: 'Mar 10, 2020',
-    datetime: '2020-03-10',
-    category: { name: 'Video', href: '#' },
-    imageUrl:
-      'https://images.unsplash.com/photo-1547586696-ea22b4d4235d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1679&q=80',
-    preview:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit facilis asperiores porro quaerat doloribus, eveniet dolore. Adipisci tempora aut inventore optio animi., tempore temporibus quo laudantium.',
-    author: {
-      name: 'Brenna Goyette',
-      imageUrl:
-        'https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-      href: '#',
-    },
-    readingLength: '4 min',
-  },
-  {
-    id: 3,
-    title: 'Improve your customer experience',
-    href: '#',
-    date: 'Feb 12, 2020',
-    datetime: '2020-02-12',
-    category: { name: 'Case Study', href: '#' },
-    imageUrl:
-      'https://images.unsplash.com/photo-1492724441997-5dc865305da7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1679&q=80',
-    preview:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint harum rerum voluptatem quo recusandae magni placeat saepe molestiae, sed excepturi cumque corporis perferendis hic.',
-    author: {
-      name: 'Daniela Metz',
-      imageUrl:
-        'https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-      href: '#',
-    },
-    readingLength: '11 min',
-  },
-];
-
-const ProjectsSection = ({ pageType }) => (
+const ProjectsSection = ({ pageType, items }) => (
   <>
     {pageType === 'frontpage' ? (
       <div className="relative bg-gray-50 py-16 sm:py-24 lg:py-32">
@@ -98,45 +39,35 @@ const ProjectsSection = ({ pageType }) => (
             </p>
           </div>
           <div className="mt-12 mx-auto max-w-md px-4 grid gap-8 sm:max-w-lg sm:px-6 lg:px-8 lg:grid-cols-3 lg:max-w-7xl">
-            {projects.map(post => (
-              <div key={post.id} className="flex flex-col rounded-lg shadow-lg overflow-hidden">
-                <div className="flex-shrink-0">
-                  <img className="h-48 w-full object-cover" src={post.imageUrl} alt="" />
-                </div>
+            {items.map(item => (
+              <div key={item._id} className="flex flex-col rounded-lg shadow-lg overflow-hidden">
+                {item.imageScreenshot?.asset?.url && (
+                  <Link
+                    href={`http://localhost:4000/senior-frontend-developer/project/${item.slug?.current}`}
+                  >
+                    <a className="block">
+                      <div className="aspect-w-16 aspect-h-9 flex-shrink-0">
+                        <img
+                          className="w-full object-cover"
+                          src={item.imageScreenshot.asset.url}
+                          alt={item.imageScreenshot.asset.altText || ''}
+                        />
+                      </div>
+                    </a>
+                  </Link>
+                )}
                 <div className="flex-1 bg-white p-6 flex flex-col justify-between">
                   <div className="flex-1">
-                    <p className="text-sm font-medium text-cyan-600">
-                      <a href={post.category.href} className="hover:underline">
-                        {post.category.name}
+                    <Link
+                      href={`http://localhost:4000/senior-frontend-developer/project/${item.slug?.current}`}
+                    >
+                      <a className="block mt-2">
+                        <p className="text-xl font-semibold text-gray-900">{item.title}</p>
+                        {item.shortDescription && (
+                          <p className="mt-3 text-base text-gray-500">{item.shortDescription}</p>
+                        )}
                       </a>
-                    </p>
-                    <a href={post.href} className="block mt-2">
-                      <p className="text-xl font-semibold text-gray-900">{post.title}</p>
-                      <p className="mt-3 text-base text-gray-500">{post.preview}</p>
-                    </a>
-                  </div>
-                  <div className="mt-6 flex items-center">
-                    <div className="flex-shrink-0">
-                      <a href={post.author.href}>
-                        <img
-                          className="h-10 w-10 rounded-full"
-                          src={post.author.imageUrl}
-                          alt={post.author.name}
-                        />
-                      </a>
-                    </div>
-                    <div className="ml-3">
-                      <p className="text-sm font-medium text-gray-900">
-                        <a href={post.author.href} className="hover:underline">
-                          {post.author.name}
-                        </a>
-                      </p>
-                      <div className="flex space-x-1 text-sm text-gray-500">
-                        <time dateTime={post.datetime}>{post.date}</time>
-                        <span aria-hidden="true">&middot;</span>
-                        <span>{post.readingLength} read</span>
-                      </div>
-                    </div>
+                    </Link>
                   </div>
                 </div>
               </div>

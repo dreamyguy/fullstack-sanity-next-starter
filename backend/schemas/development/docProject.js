@@ -15,6 +15,16 @@ export default {
     {
       name: 'slug',
       title: 'URL slug',
+      description: `The URL-friendly title that's generated out of the 'title' field`,
+      type: 'slug',
+      options: {
+        source: 'title',
+        slugify: input => input.toLowerCase().replace(/\s+/g, '-').slice(0, 200),
+      },
+    },
+    {
+      name: 'slugDistribution',
+      title: 'URL slug for distribution',
       description: `The URL-friendly title that match the name as spelled on GitHub / NPM / Gitlab`,
       type: 'string',
       validation: Rule =>
