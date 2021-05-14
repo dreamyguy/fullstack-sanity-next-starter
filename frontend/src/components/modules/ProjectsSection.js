@@ -39,39 +39,45 @@ const ProjectsSection = ({ pageType, items }) => (
             </p>
           </div>
           <div className="mt-12 mx-auto max-w-md px-4 grid gap-8 sm:max-w-lg sm:px-6 lg:px-8 lg:grid-cols-3 lg:max-w-7xl">
-            {items.map(item => (
-              <div key={item._id} className="flex flex-col rounded-lg shadow-lg overflow-hidden">
-                {item.imageScreenshot?.asset?.url && (
-                  <Link
-                    href={`http://localhost:4000/senior-frontend-developer/project/${item.slug?.current}`}
-                  >
-                    <a className="block">
-                      <div className="aspect-w-16 aspect-h-9 flex-shrink-0">
-                        <img
-                          className="w-full object-cover"
-                          src={item.imageScreenshot.asset.url}
-                          alt={item.imageScreenshot.asset.altText || ''}
-                        />
-                      </div>
-                    </a>
-                  </Link>
-                )}
-                <div className="flex-1 bg-white p-6 flex flex-col justify-between">
-                  <div className="flex-1">
+            {items.map(item => {
+              const imageUrl =
+                item.imageUnsplash && item.useImageFromUnsplash
+                  ? item.imageUnsplash
+                  : item.imageScreenshot?.asset?.url || '';
+              return (
+                <div key={item._id} className="flex flex-col rounded-lg shadow-lg overflow-hidden">
+                  {imageUrl && (
                     <Link
                       href={`http://localhost:4000/senior-frontend-developer/project/${item.slug?.current}`}
                     >
-                      <a className="block mt-2">
-                        <p className="text-xl font-semibold text-gray-900">{item.title}</p>
-                        {item.shortDescription && (
-                          <p className="mt-3 text-base text-gray-500">{item.shortDescription}</p>
-                        )}
+                      <a className="block">
+                        <div className="aspect-w-16 aspect-h-9 flex-shrink-0">
+                          <img
+                            className="w-full object-cover"
+                            src={imageUrl}
+                            alt={item.imageScreenshot?.asset?.altText || ''}
+                          />
+                        </div>
                       </a>
                     </Link>
+                  )}
+                  <div className="flex-1 bg-white p-6 flex flex-col justify-between">
+                    <div className="flex-1">
+                      <Link
+                        href={`http://localhost:4000/senior-frontend-developer/project/${item.slug?.current}`}
+                      >
+                        <a className="block mt-2">
+                          <p className="text-xl font-semibold text-gray-900">{item.title}</p>
+                          {item.shortDescription && (
+                            <p className="mt-3 text-base text-gray-500">{item.shortDescription}</p>
+                          )}
+                        </a>
+                      </Link>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </div>

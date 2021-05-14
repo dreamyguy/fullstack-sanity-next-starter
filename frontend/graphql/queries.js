@@ -61,6 +61,8 @@ export const allProjectQuery = gql`
       slogan
       shortDescription
       descriptionRaw
+      imageUnsplash
+      useImageFromUnsplash
       imageScreenshot {
         asset {
           url
@@ -122,6 +124,8 @@ export const projectQuery = gql`
       slogan
       shortDescription
       descriptionRaw
+      imageUnsplash
+      useImageFromUnsplash
       imageScreenshot {
         asset {
           url
