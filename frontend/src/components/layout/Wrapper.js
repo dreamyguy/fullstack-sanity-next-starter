@@ -361,7 +361,8 @@ const Wrapper = ({ pageType, children }) => {
               )}
             </Popover>
             <main>
-              <div className="pt-10 bg-gray-900 sm:pt-16 lg:pt-8 lg:pb-14 lg:overflow-hidden">
+              {/* Hero section */}
+              {/* <div className="pt-10 bg-gray-900 sm:pt-16 lg:pt-8 lg:pb-14 lg:overflow-hidden">
                 <div className="mx-auto max-w-7xl lg:px-8">
                   <div className="lg:grid lg:grid-cols-2 lg:gap-8">
                     <div className="mx-auto max-w-md px-4 sm:max-w-2xl sm:px-6 sm:text-center lg:px-0 lg:text-left lg:flex lg:items-center">
@@ -426,7 +427,6 @@ const Wrapper = ({ pageType, children }) => {
                     </div>
                     <div className="mt-12 -mb-16 sm:-mb-48 lg:m-0 lg:relative">
                       <div className="mx-auto max-w-md px-4 sm:max-w-2xl sm:px-6 lg:max-w-none lg:px-0">
-                        {/* Illustration taken from Lucid Illustrations: https://lucid.pixsellz.io/ */}
                         <img
                           className="w-full lg:absolute lg:inset-y-0 lg:left-0 lg:h-full lg:w-auto lg:max-w-none"
                           src="https://tailwindui.com/img/component-images/cloud-illustration-teal-cyan.svg"
@@ -436,10 +436,10 @@ const Wrapper = ({ pageType, children }) => {
                     </div>
                   </div>
                 </div>
-              </div>
+              </div> */}
 
               {/* Feature section with screenshot */}
-              <div className="relative bg-gray-50 pt-16 sm:pt-24 lg:pt-32">
+              {/* <div className="relative bg-gray-50 pt-16 sm:pt-24 lg:pt-32">
                 <div className="mx-auto max-w-md px-4 text-center sm:px-6 sm:max-w-3xl lg:px-8 lg:max-w-7xl">
                   <div>
                     <h2 className="text-base font-semibold tracking-wider text-cyan-600 uppercase">
@@ -461,10 +461,10 @@ const Wrapper = ({ pageType, children }) => {
                     />
                   </div>
                 </div>
-              </div>
+              </div> */}
 
               {/* Feature section with grid */}
-              <div className="relative bg-white py-16 sm:py-24 lg:py-32">
+              {/* <div className="relative bg-white py-16 sm:py-24 lg:py-32">
                 <div className="mx-auto max-w-md px-4 text-center sm:max-w-3xl sm:px-6 lg:px-8 lg:max-w-7xl">
                   <h2 className="text-base font-semibold tracking-wider text-cyan-600 uppercase">
                     Deploy faster
@@ -498,10 +498,10 @@ const Wrapper = ({ pageType, children }) => {
                     </div>
                   </div>
                 </div>
-              </div>
+              </div> */}
 
               {/* Testimonial section */}
-              <div className="pb-16 bg-gradient-to-r from-teal-500 to-cyan-600 lg:pb-0 lg:z-10 lg:relative">
+              {/* <div className="pb-16 bg-gradient-to-r from-teal-500 to-cyan-600 lg:pb-0 lg:z-10 lg:relative">
                 <div className="lg:mx-auto lg:max-w-7xl lg:px-8 lg:grid lg:grid-cols-3 lg:gap-8">
                   <div className="relative lg:-my-8">
                     <div
@@ -544,21 +544,21 @@ const Wrapper = ({ pageType, children }) => {
                     </div>
                   </div>
                 </div>
-              </div>
+              </div> */}
 
               {/* Blog section */}
               <div className="relative bg-gray-50 py-16 sm:py-24 lg:py-32">
                 <div className="relative">
                   <div className="text-center mx-auto max-w-md px-4 sm:max-w-3xl sm:px-6 lg:px-8 lg:max-w-7xl">
                     <h2 className="text-base font-semibold tracking-wider text-cyan-600 uppercase">
-                      Learn
+                      Blog
                     </h2>
                     <p className="mt-2 text-3xl font-extrabold text-gray-900 tracking-tight sm:text-4xl">
-                      Helpful Resources
+                      What's up in my world
                     </p>
                     <p className="mt-5 mx-auto max-w-prose text-xl text-gray-500">
-                      Phasellus lorem quam molestie id quisque diam aenean nulla in. Accumsan in
-                      quis quis nunc, ullamcorper malesuada. Eleifend condimentum id viverra nulla.
+                      Articles on JavaScript and beyond, music news, musings on Fantasy books and{' '}
+                      <em>small life events from an average dude</em> kind of things.
                     </p>
                   </div>
                   <div className="mt-12 mx-auto max-w-md px-4 grid gap-8 sm:max-w-lg sm:px-6 lg:px-8 lg:grid-cols-3 lg:max-w-7xl">
@@ -613,7 +613,7 @@ const Wrapper = ({ pageType, children }) => {
               </div>
 
               {/* CTA Section */}
-              <div className="relative bg-gray-900">
+              {/* <div className="relative bg-gray-900">
                 <div className="relative h-56 bg-indigo-600 sm:h-72 md:absolute md:left-0 md:h-full md:w-1/2">
                   <img
                     className="w-full h-full object-cover"
@@ -654,14 +654,14 @@ const Wrapper = ({ pageType, children }) => {
                     </div>
                   </div>
                 </div>
-              </div>
+              </div> */}
             </main>
             <footer className="bg-gray-50" aria-labelledby="footerHeading">
               <h2 id="footerHeading" className="sr-only">
                 Footer
               </h2>
               <div className="max-w-md mx-auto pt-12 px-4 sm:max-w-7xl sm:px-6 lg:pt-16 lg:px-8">
-                <div className="xl:grid xl:grid-cols-3 xl:gap-8">
+                {/* <div className="xl:grid xl:grid-cols-3 xl:gap-8">
                   <div className="space-y-8 xl:col-span-1">
                     <img
                       className="h-10"
@@ -758,7 +758,7 @@ const Wrapper = ({ pageType, children }) => {
                       </div>
                     </div>
                   </div>
-                </div>
+                </div> */}
                 <div className="mt-12 border-t border-gray-200 py-8">
                   <p className="text-base text-gray-400 xl:text-center">
                     &copy; 2020 Workflow, Inc. All rights reserved.
