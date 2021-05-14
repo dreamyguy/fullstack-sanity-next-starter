@@ -14,8 +14,8 @@ import Wrapper from '../src/components/layout/Wrapper';
 // Components - modules
 import BlogSection from '../src/components/modules/BlogSection';
 import CTASection from '../src/components/modules/CTASection';
-import FeatureSectionWithGrid from '../src/components/modules/FeatureSectionWithGrid';
-import FeatureSectionWithScreenshot from '../src/components/modules/FeatureSectionWithScreenshot';
+// import FeatureSectionWithGrid from '../src/components/modules/FeatureSectionWithGrid';
+// import FeatureSectionWithScreenshot from '../src/components/modules/FeatureSectionWithScreenshot';
 import HeroSection from '../src/components/modules/HeroSection';
 import ProjectsSection from '../src/components/modules/ProjectsSection';
 import TestimonialSection from '../src/components/modules/TestimonialSection';
@@ -69,12 +69,12 @@ const Home = ({ dataAllProject, dataSiteSettings }) => (
   <Wrapper pageType="frontpage" settings={dataSiteSettings?.SiteSettings}>
     <HeroSection pageType="frontpage" settings={dataSiteSettings?.SiteSettings} />
     <ProjectsSection pageType="frontpage" />
-    <FeatureSectionWithScreenshot pageType="frontpage" />
-    <FeatureSectionWithGrid pageType="frontpage" />
+    {/* <FeatureSectionWithScreenshot pageType="frontpage" /> */}
+    {/* <FeatureSectionWithGrid pageType="frontpage" /> */}
     <TestimonialSection pageType="frontpage" />
     <BlogSection pageType="frontpage" />
     <CTASection pageType="frontpage" />
-    <div className="bg-grey-light h-screen w-screen py-6">
+    <div className="bg-grey-light py-6">
       <div
         className="
           relative

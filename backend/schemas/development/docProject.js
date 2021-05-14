@@ -33,11 +33,41 @@ export default {
       type: 'boolean',
     },
     {
-      name: 'GitHubUser',
+      name: 'gitHubUser',
       title: 'GitHub User',
       description: `The 'username' the project is under, on GitHub`,
       type: 'reference',
       to: { type: 'GitHubUsername' },
+    },
+    {
+      name: 'slogan',
+      title: 'Slogan',
+      type: 'string',
+    },
+    {
+      name: 'shortDescription',
+      title: 'Short description',
+      type: 'text',
+      validation: Rule =>
+        Rule.max(160).error('Short description should have maximum 160 characters'),
+    },
+    {
+      name: 'description',
+      title: 'Description',
+      type: 'array',
+      of: [{ type: 'block' }],
+    },
+    {
+      name: 'imageScreenshot',
+      title: 'Screenshot',
+      description: `A screenshot taken from the project.`,
+      type: 'image',
+    },
+    {
+      name: 'imageSoMe',
+      title: 'Image Social Media',
+      description: `Image used for SoMe preview.`,
+      type: 'image',
     },
     {
       name: 'urlSource',
@@ -56,18 +86,6 @@ export default {
       title: 'URL Distribution',
       description: `The URL that points to the project's distribution (i.e. 'NPM').`,
       type: 'string',
-    },
-    {
-      name: 'screenshot',
-      title: 'Screenshot',
-      description: `A screenshot taken from the project.`,
-      type: 'image',
-    },
-    {
-      name: 'imageSoMe',
-      title: 'Image Social Media',
-      description: `Image used for SoMe preview.`,
-      type: 'image',
     },
   ],
   initialValue: {

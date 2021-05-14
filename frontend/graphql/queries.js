@@ -55,7 +55,51 @@ export const allProjectQuery = gql`
       _id
       title
       slug
+      slogan
+      shortDescription
+      descriptionRaw
+      imageScreenshot {
+        asset {
+          url
+          altText
+          title
+        }
+        hotspot {
+          x
+          y
+          height
+          width
+        }
+        crop {
+          top
+          bottom
+          left
+          right
+        }
+      }
+      imageSoMe {
+        asset {
+          url
+          altText
+          title
+        }
+        hotspot {
+          x
+          y
+          height
+          width
+        }
+        crop {
+          top
+          bottom
+          left
+          right
+        }
+      }
       isGithub
+      gitHubUser {
+        username
+      }
       urlSource
       urlPreview
       urlDistribution
@@ -67,12 +111,56 @@ export const projectQuery = gql`
   query ProjectQuery($id: ID!) {
     Project(id: $id) {
       _id
-      isGithub
-      slug
       title
-      urlDistribution
-      urlPreview
+      slug
+      slogan
+      shortDescription
+      descriptionRaw
+      imageScreenshot {
+        asset {
+          url
+          altText
+          title
+        }
+        hotspot {
+          x
+          y
+          height
+          width
+        }
+        crop {
+          top
+          bottom
+          left
+          right
+        }
+      }
+      imageSoMe {
+        asset {
+          url
+          altText
+          title
+        }
+        hotspot {
+          x
+          y
+          height
+          width
+        }
+        crop {
+          top
+          bottom
+          left
+          right
+        }
+      }
+      isGithub
+      gitHubUser {
+        username
+      }
       urlSource
+      urlPreview
+      urlDistribution
     }
   }
 `;
