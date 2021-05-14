@@ -15,10 +15,10 @@ import Toggler from './../primitives/Toggler/Toggler';
 
 // Data - mock
 const navigation = [
-  { name: 'Product', href: '#' },
-  { name: 'Features', href: '#' },
-  { name: 'Marketplace', href: '#' },
-  { name: 'Company', href: '#' },
+  { name: 'Projects', href: '#' },
+  { name: 'Music', href: '#' },
+  { name: 'Portfolio', href: '#' },
+  { name: 'Blog', href: '#' },
 ];
 
 const Header = ({ pageType }) => {
@@ -64,17 +64,9 @@ const Header = ({ pageType }) => {
                     ))}
                   </div>
                 </div>
-                <div className="hidden md:flex md:items-center md:space-x-6">
-                  <a href="#" className="text-base font-medium text-white hover:text-gray-300">
-                    Log in
-                  </a>
-                  <a
-                    href="#"
-                    className="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-white bg-gray-600 hover:bg-gray-700"
-                  >
-                    Start free trial
-                  </a>
-                  {!uiIsLoading && (
+                {!uiIsLoading && (
+                  <div className="hidden md:flex md:items-center md:space-x-6">
+                    <span className="text-base font-medium text-white">Dark Mode</span>
                     <Toggler
                       bgOn="bg-indigo-600 dark:bg-gray-600"
                       bgOff="bg-gray-200"
@@ -83,8 +75,8 @@ const Header = ({ pageType }) => {
                       status={uiDarkMode}
                       handleTogglerStatus={() => setUiDarkMode(!uiDarkMode)}
                     />
-                  )}
-                </div>
+                  </div>
+                )}
               </nav>
             </div>
 
@@ -138,14 +130,6 @@ const Header = ({ pageType }) => {
                       >
                         Start free trial
                       </a>
-                    </div>
-                    <div className="mt-6 px-5">
-                      <p className="text-center text-base font-medium text-gray-500">
-                        Existing customer?{' '}
-                        <a href="#" className="text-gray-900 hover:underline">
-                          Login
-                        </a>
-                      </p>
                     </div>
                   </div>
                 </div>
