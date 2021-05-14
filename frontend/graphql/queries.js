@@ -8,6 +8,7 @@ export const siteSettingsQuery = gql`
     SiteSettings(id: "siteSettings") {
       title
       shortDescription
+      description
       blogPath
       animateNumbers
       darkMode

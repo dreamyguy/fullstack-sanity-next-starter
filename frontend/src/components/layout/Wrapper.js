@@ -18,13 +18,6 @@ import Footer from './Footer';
 import Header from './Header';
 import Loading from './Loading';
 import Main from './Main';
-// Components - modules
-import BlogSection from '../modules/BlogSection';
-import CTASection from '../modules/CTASection';
-import FeatureSectionWithGrid from '../modules/FeatureSectionWithGrid';
-import FeatureSectionWithScreenshot from '../modules/FeatureSectionWithScreenshot';
-import HeroSection from '../modules/HeroSection';
-import TestimonialSection from '../modules/TestimonialSection';
 // Components - primitives
 import Errors from '../primitives/Error/Errors';
 
@@ -41,15 +34,7 @@ const Wrapper = ({ pageType, children, settings }) => {
         <div className="bg-white">
           <div className="relative overflow-hidden">
             <Header pageType={pageType} />
-            <Main pageType={pageType}>
-              <HeroSection pageType={pageType} />
-              <FeatureSectionWithScreenshot pageType={pageType} />
-              <FeatureSectionWithGrid pageType={pageType} />
-              <TestimonialSection pageType={pageType} />
-              <BlogSection pageType={pageType} />
-              <CTASection pageType={pageType} />
-              {children}
-            </Main>
+            <Main pageType={pageType}>{children}</Main>
             <Footer pageType={pageType} settings={settings} />
           </div>
         </div>

@@ -9,9 +9,17 @@ import { getAllProject, getSiteSettings } from '../graphql/requests';
 import { isNotEmptyArray } from '../src/utils/isEmptyUtil';
 import sortArrayByKey from '../src/utils/sortArrayByKeyUtil';
 
-// Import components
-import DividerWithTitle from '../src/components/primitives/DividerWithTitle';
+// Components - layout
 import Wrapper from '../src/components/layout/Wrapper';
+// Components - modules
+import BlogSection from '../src/components/modules/BlogSection';
+import CTASection from '../src/components/modules/CTASection';
+import FeatureSectionWithGrid from '../src/components/modules/FeatureSectionWithGrid';
+import FeatureSectionWithScreenshot from '../src/components/modules/FeatureSectionWithScreenshot';
+import HeroSection from '../src/components/modules/HeroSection';
+import TestimonialSection from '../src/components/modules/TestimonialSection';
+// Components - primitives
+import DividerWithTitle from '../src/components/primitives/DividerWithTitle';
 
 export async function getStaticProps() {
   const dataAllProject = await getAllProject();
@@ -58,6 +66,12 @@ const Projects = ({ projects }) => {
 
 const Home = ({ dataAllProject, dataSiteSettings }) => (
   <Wrapper pageType="frontpage" settings={dataSiteSettings?.SiteSettings}>
+    <HeroSection pageType="frontpage" settings={dataSiteSettings?.SiteSettings} />
+    <FeatureSectionWithScreenshot pageType="frontpage" />
+    <FeatureSectionWithGrid pageType="frontpage" />
+    <TestimonialSection pageType="frontpage" />
+    <BlogSection pageType="frontpage" />
+    <CTASection pageType="frontpage" />
     <div className="bg-grey-light h-screen w-screen py-6">
       <div
         className="
@@ -71,14 +85,8 @@ const Home = ({ dataAllProject, dataSiteSettings }) => (
           <meta property="description" content={dataSiteSettings?.SiteSettings?.shortDescription} />
           <link rel="icon" href="/favicon.ico" />
         </Head>
-        <main>
-          <h1 className="text-xl font-bold mb-6">{dataSiteSettings?.SiteSettings?.title}</h1>
-          <h2 className="text-xl font-bold mb-6">
-            {dataSiteSettings?.SiteSettings?.shortDescription}
-          </h2>
-          <DividerWithTitle align="left" title="Projects" classes="mb-8" />
-          <Projects projects={dataAllProject?.allProject} />
-        </main>
+        <DividerWithTitle align="left" title="Projects" classes="mb-8" />
+        <Projects projects={dataAllProject?.allProject} />
       </div>
     </div>
   </Wrapper>
