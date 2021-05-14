@@ -56,11 +56,8 @@ const Projects = ({ projects }) => {
   );
 };
 
-const Home = ({
-  dataAllProject: { allProject } = {},
-  dataSiteSettings: { SiteSettings: { title, shortDescription } = {} } = {},
-}) => (
-  <Wrapper pageType="frontpage">
+const Home = ({ dataAllProject, dataSiteSettings }) => (
+  <Wrapper pageType="frontpage" settings={dataSiteSettings?.SiteSettings}>
     <div className="bg-grey-light h-screen w-screen py-6">
       <div
         className="
@@ -70,15 +67,17 @@ const Home = ({
         "
       >
         <Head>
-          <title>{title}</title>
-          <meta property="description" content={shortDescription} />
+          <title>{dataSiteSettings?.SiteSettings?.title}</title>
+          <meta property="description" content={dataSiteSettings?.SiteSettings?.shortDescription} />
           <link rel="icon" href="/favicon.ico" />
         </Head>
         <main>
-          <h1 className="text-xl font-bold mb-6">{title}</h1>
-          <h2 className="text-xl font-bold mb-6">{shortDescription}</h2>
+          <h1 className="text-xl font-bold mb-6">{dataSiteSettings?.SiteSettings?.title}</h1>
+          <h2 className="text-xl font-bold mb-6">
+            {dataSiteSettings?.SiteSettings?.shortDescription}
+          </h2>
           <DividerWithTitle align="left" title="Projects" classes="mb-8" />
-          <Projects projects={allProject} />
+          <Projects projects={dataAllProject?.allProject} />
         </main>
       </div>
     </div>

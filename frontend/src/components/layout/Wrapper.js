@@ -31,7 +31,7 @@ import Errors from '../primitives/Error/Errors';
 // Import utils
 import { isNotEmptyArray } from '../../utils/isEmptyUtil';
 
-const Wrapper = ({ pageType, children }) => {
+const Wrapper = ({ pageType, children, settings }) => {
   const { errors } = useContext(ErrorContext);
   const { uiDarkMode, uiIsLoading } = useContext(UiContext);
 
@@ -50,7 +50,7 @@ const Wrapper = ({ pageType, children }) => {
               <CTASection pageType={pageType} />
               {children}
             </Main>
-            <Footer pageType={pageType} />
+            <Footer pageType={pageType} settings={settings} />
           </div>
         </div>
       ) : (
