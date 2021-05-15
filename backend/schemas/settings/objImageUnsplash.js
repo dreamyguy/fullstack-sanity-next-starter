@@ -26,6 +26,12 @@ export default {
       type: 'boolean',
     },
     {
+      name: 'altText',
+      title: `Alt`,
+      description: `Alternative text for image.`,
+      type: 'string',
+    },
+    {
       name: 'onwersName',
       title: `Unsplash image owner's name`,
       description: `Full name of image's owner.`,

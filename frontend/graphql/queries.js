@@ -46,6 +46,7 @@ export const allPostQuery = gql`
           imageUnsplash {
             url
             useImageFromUnsplash
+            altText
             onwersName
             profileUnsplash
             profileInstagram
@@ -113,6 +114,7 @@ export const allPostQuery = gql`
       imageUnsplash {
         url
         useImageFromUnsplash
+        altText
         onwersName
         profileUnsplash
         profileInstagram
@@ -200,6 +202,7 @@ export const postQuery = gql`
           imageUnsplash {
             url
             useImageFromUnsplash
+            altText
             onwersName
             profileUnsplash
             profileInstagram
@@ -267,6 +270,7 @@ export const postQuery = gql`
       imageUnsplash {
         url
         useImageFromUnsplash
+        altText
         onwersName
         profileUnsplash
         profileInstagram
@@ -347,6 +351,7 @@ export const allProjectQuery = gql`
       imageUnsplash {
         url
         useImageFromUnsplash
+        altText
         onwersName
         profileUnsplash
         profileInstagram
@@ -434,6 +439,7 @@ export const projectQuery = gql`
       imageUnsplash {
         url
         useImageFromUnsplash
+        altText
         onwersName
         profileUnsplash
         profileInstagram

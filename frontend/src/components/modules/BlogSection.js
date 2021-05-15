@@ -1,3 +1,4 @@
+/* eslint-disable no-nested-ternary */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
 import PropTypes from 'prop-types';
@@ -26,10 +27,36 @@ const BlogSection = ({ pageType, items }) => (
                 item.imageUnsplash?.url && item.imageUnsplash?.useImageFromUnsplash
                   ? item.imageUnsplash?.url
                   : item.imageMain?.asset?.url || '';
+              const imageAltTextCredit =
+                item.imageUnsplash?.onwersName && item.imageUnsplash?.altText
+                  ? ` - Image by ${item.imageUnsplash?.onwersName}`
+                  : item.imageUnsplash?.onwersName && !item.imageUnsplash?.altText
+                  ? `Image by ${item.imageUnsplash?.onwersName}`
+                  : '';
+              const imageAltText =
+                item.imageUnsplash?.altText && item.imageUnsplash?.useImageFromUnsplash
+                  ? `${item.imageUnsplash?.altText}${imageAltTextCredit}`
+                  : !item.imageUnsplash?.altText && item.imageUnsplash?.useImageFromUnsplash
+                  ? imageAltTextCredit
+                  : item.imageMain?.asset?.altText || item.title || '';
               const imageAuthorUrl =
                 item.author?.imageUnsplash?.url && item.author?.imageUnsplash?.useImageFromUnsplash
                   ? item.author?.imageUnsplash?.url
                   : item.author?.imageMain?.asset?.url || '';
+              const imageAuthorAltTextCredit =
+                item.author?.imageUnsplash?.onwersName && item.author?.imageUnsplash?.altText
+                  ? ` - Image by ${item.author?.imageUnsplash?.onwersName}`
+                  : item.author?.imageUnsplash?.onwersName && !item.author?.imageUnsplash?.altText
+                  ? `Image by ${item.author?.imageUnsplash?.onwersName}`
+                  : '';
+              const imageAuthorAltText =
+                item.author?.imageUnsplash?.altText &&
+                item.author?.imageUnsplash?.useImageFromUnsplash
+                  ? `${item.imageUnsplash?.altText}${imageAuthorAltTextCredit}`
+                  : !item.author?.imageUnsplash?.altText &&
+                    item.author?.imageUnsplash?.useImageFromUnsplash
+                  ? imageAuthorAltTextCredit
+                  : item.author?.imageMain?.asset?.altText || item.author?.title || '';
               const timeToRead = readingTime(item.bodyRaw);
               return (
                 <div key={item._id} className="flex flex-col rounded-lg shadow-lg overflow-hidden">
@@ -37,11 +64,7 @@ const BlogSection = ({ pageType, items }) => (
                     <Link href={`/blog/${item.slug?.current}`}>
                       <a className="block">
                         <div className="aspect-w-16 aspect-h-9 flex-shrink-0">
-                          <img
-                            className="w-full object-cover"
-                            src={imageUrl}
-                            alt={item.imageMain?.asset?.altText || ''}
-                          />
+                          <img className="w-full object-cover" src={imageUrl} alt={imageAltText} />
                         </div>
                       </a>
                     </Link>
@@ -70,7 +93,7 @@ const BlogSection = ({ pageType, items }) => (
                               <img
                                 className="h-10 w-10 rounded-full"
                                 src={imageAuthorUrl}
-                                alt={item.author?.title}
+                                alt={imageAuthorAltText}
                               />
                             </a>
                           </Link>
