@@ -43,19 +43,17 @@ const ProjectsSection = ({ pageType, items }) => (
               const imageUrl =
                 item.imageUnsplash?.url && item.imageUnsplash?.useImageFromUnsplash
                   ? item.imageUnsplash?.url
-                  : item.imageScreenshot?.asset?.url || '';
+                  : item.imageMain?.asset?.url || '';
               return (
                 <div key={item._id} className="flex flex-col rounded-lg shadow-lg overflow-hidden">
                   {imageUrl && (
-                    <Link
-                      href={`http://localhost:4000/senior-frontend-developer/project/${item.slug?.current}`}
-                    >
+                    <Link href={`/senior-frontend-developer/project/${item.slug?.current}`}>
                       <a className="block">
                         <div className="aspect-w-16 aspect-h-9 flex-shrink-0">
                           <img
                             className="w-full object-cover"
                             src={imageUrl}
-                            alt={item.imageScreenshot?.asset?.altText || ''}
+                            alt={item.imageMain?.asset?.altText || ''}
                           />
                         </div>
                       </a>
@@ -63,9 +61,7 @@ const ProjectsSection = ({ pageType, items }) => (
                   )}
                   <div className="flex-1 bg-white p-6 flex flex-col justify-between">
                     <div className="flex-1">
-                      <Link
-                        href={`http://localhost:4000/senior-frontend-developer/project/${item.slug?.current}`}
-                      >
+                      <Link href={`/senior-frontend-developer/project/${item.slug?.current}`}>
                         <a className="block mt-2">
                           <p className="text-xl font-semibold text-gray-900">{item.title}</p>
                           {item.shortDescription && (

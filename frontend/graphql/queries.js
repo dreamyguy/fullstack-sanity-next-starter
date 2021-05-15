@@ -32,6 +32,103 @@ export const allPostQuery = gql`
       slug {
         current
       }
+      shortDescription
+      categories {
+        title
+      }
+      author {
+        __typename
+        ... on Author {
+          name
+          slug {
+            current
+          }
+          imageMain {
+            asset {
+              url
+              altText
+              title
+            }
+            hotspot {
+              x
+              y
+              height
+              width
+            }
+            crop {
+              top
+              bottom
+              left
+              right
+            }
+          }
+        }
+      }
+      bodyRaw
+      imageUnsplash {
+        url
+        useImageFromUnsplash
+        onwersName
+        profileUnsplash
+        profileInstagram
+      }
+      imageMain {
+        asset {
+          url
+          altText
+          title
+        }
+        hotspot {
+          x
+          y
+          height
+          width
+        }
+        crop {
+          top
+          bottom
+          left
+          right
+        }
+      }
+      imageScreenshot {
+        asset {
+          url
+          altText
+          title
+        }
+        hotspot {
+          x
+          y
+          height
+          width
+        }
+        crop {
+          top
+          bottom
+          left
+          right
+        }
+      }
+      imageSoMe {
+        asset {
+          url
+          altText
+          title
+        }
+        hotspot {
+          x
+          y
+          height
+          width
+        }
+        crop {
+          top
+          bottom
+          left
+          right
+        }
+      }
     }
   }
 `;
@@ -44,7 +141,103 @@ export const postQuery = gql`
       slug {
         current
       }
+      shortDescription
+      categories {
+        title
+      }
+      author {
+        __typename
+        ... on Author {
+          name
+          slug {
+            current
+          }
+          imageMain {
+            asset {
+              url
+              altText
+              title
+            }
+            hotspot {
+              x
+              y
+              height
+              width
+            }
+            crop {
+              top
+              bottom
+              left
+              right
+            }
+          }
+        }
+      }
       bodyRaw
+      imageUnsplash {
+        url
+        useImageFromUnsplash
+        onwersName
+        profileUnsplash
+        profileInstagram
+      }
+      imageMain {
+        asset {
+          url
+          altText
+          title
+        }
+        hotspot {
+          x
+          y
+          height
+          width
+        }
+        crop {
+          top
+          bottom
+          left
+          right
+        }
+      }
+      imageScreenshot {
+        asset {
+          url
+          altText
+          title
+        }
+        hotspot {
+          x
+          y
+          height
+          width
+        }
+        crop {
+          top
+          bottom
+          left
+          right
+        }
+      }
+      imageSoMe {
+        asset {
+          url
+          altText
+          title
+        }
+        hotspot {
+          x
+          y
+          height
+          width
+        }
+        crop {
+          top
+          bottom
+          left
+          right
+        }
+      }
     }
   }
 `;
@@ -67,6 +260,25 @@ export const allProjectQuery = gql`
         onwersName
         profileUnsplash
         profileInstagram
+      }
+      imageMain {
+        asset {
+          url
+          altText
+          title
+        }
+        hotspot {
+          x
+          y
+          height
+          width
+        }
+        crop {
+          top
+          bottom
+          left
+          right
+        }
       }
       imageScreenshot {
         asset {
@@ -135,6 +347,25 @@ export const projectQuery = gql`
         onwersName
         profileUnsplash
         profileInstagram
+      }
+      imageMain {
+        asset {
+          url
+          altText
+          title
+        }
+        hotspot {
+          x
+          y
+          height
+          width
+        }
+        crop {
+          top
+          bottom
+          left
+          right
+        }
       }
       imageScreenshot {
         asset {

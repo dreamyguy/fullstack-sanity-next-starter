@@ -13,22 +13,46 @@ export default {
     },
     {
       name: 'slug',
-      title: 'Slug',
+      title: 'URL slug',
+      description: `The URL-friendly title that's generated out of the 'title' field`,
       type: 'slug',
       options: {
         source: 'title',
-        maxLength: 96,
+        slugify: input => input.toLowerCase().replace(/\s+/g, '-').slice(0, 200),
       },
     },
     {
       name: 'author',
       title: 'Author',
       type: 'reference',
-      to: { type: 'author' },
+      to: { type: 'Author' },
     },
     {
-      name: 'mainImage',
+      name: 'imageUnsplash',
+      title: 'Unsplash',
+      type: 'ImageUnsplash',
+    },
+    {
+      name: 'imageMain',
       title: 'Main image',
+      type: 'image',
+      options: {
+        hotspot: true,
+      },
+    },
+    {
+      name: 'imageScreenshot',
+      title: 'Screenshot',
+      description: `A screenshot, if relevant.`,
+      type: 'image',
+      options: {
+        hotspot: true,
+      },
+    },
+    {
+      name: 'imageSoMe',
+      title: 'Image Social Media',
+      description: `Image used for SoMe preview.`,
       type: 'image',
       options: {
         hotspot: true,
@@ -46,6 +70,13 @@ export default {
       type: 'datetime',
     },
     {
+      name: 'shortDescription',
+      title: 'Short description',
+      type: 'text',
+      validation: Rule =>
+        Rule.max(160).error('Short description should have maximum 160 characters'),
+    },
+    {
       name: 'body',
       title: 'Body',
       type: 'blockContent',
@@ -55,7 +86,7 @@ export default {
     select: {
       title: 'title',
       author: 'author.name',
-      media: 'mainImage',
+      media: 'imageMain',
     },
     prepare(selection) {
       const { author, title = 'New: Blog > Post' } = selection;

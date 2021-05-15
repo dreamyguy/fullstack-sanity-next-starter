@@ -3,7 +3,7 @@
 import Head from 'next/head';
 
 // Import data
-import { getAllProject, getSiteSettings } from '../graphql/requests';
+import { getAllPost, getAllProject, getSiteSettings } from '../graphql/requests';
 
 // Import utils
 // import { isNotEmptyArray } from '../src/utils/isEmptyUtil';
@@ -24,6 +24,7 @@ import TestimonialSection from '../src/components/modules/TestimonialSection';
 
 export async function getStaticProps() {
   const dataAllProject = await getAllProject();
+  const dataAllPost = await getAllPost();
   const dataSiteSettings = await getSiteSettings();
   if (!dataAllProject || !dataSiteSettings) {
     return {
@@ -32,6 +33,7 @@ export async function getStaticProps() {
   }
   return {
     props: {
+      dataAllPost,
       dataAllProject,
       dataSiteSettings,
     },
@@ -65,14 +67,14 @@ export async function getStaticProps() {
 //   );
 // };
 
-const Home = ({ dataAllProject, dataSiteSettings }) => (
+const Home = ({ dataAllPost, dataAllProject, dataSiteSettings }) => (
   <Wrapper pageType="frontpage" settings={dataSiteSettings?.SiteSettings}>
     <HeroSection pageType="frontpage" settings={dataSiteSettings?.SiteSettings} />
     <ProjectsSection pageType="frontpage" items={dataAllProject?.allProject} />
     {/* <FeatureSectionWithScreenshot pageType="frontpage" /> */}
     {/* <FeatureSectionWithGrid pageType="frontpage" /> */}
     <TestimonialSection pageType="frontpage" />
-    <BlogSection pageType="frontpage" />
+    <BlogSection pageType="frontpage" items={dataAllPost?.allPost} />
     <CTASection pageType="frontpage" />
     <div className="bg-grey-light py-6">
       <div

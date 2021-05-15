@@ -47,6 +47,37 @@ export default {
       of: [{ type: 'block' }],
     },
     {
+      name: 'imageUnsplash',
+      title: 'Unsplash',
+      type: 'ImageUnsplash',
+    },
+    {
+      name: 'imageMain',
+      title: 'Main image',
+      type: 'image',
+      options: {
+        hotspot: true,
+      },
+    },
+    {
+      name: 'imageScreenshot',
+      title: 'Screenshot',
+      description: `A screenshot, if relevant.`,
+      type: 'image',
+      options: {
+        hotspot: true,
+      },
+    },
+    {
+      name: 'imageSoMe',
+      title: 'Image Social Media',
+      description: `Image used for SoMe preview.`,
+      type: 'image',
+      options: {
+        hotspot: true,
+      },
+    },
+    {
       name: 'contactInfo',
       title: 'Contact Info & Social Tags',
       type: 'Contact',

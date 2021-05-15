@@ -1,7 +1,7 @@
 import { MdAccountCircle } from 'react-icons/md';
 
 export default {
-  name: 'author',
+  name: 'Author',
   title: 'Author',
   type: 'document',
   icon: MdAccountCircle,
@@ -13,16 +13,40 @@ export default {
     },
     {
       name: 'slug',
-      title: 'Slug',
+      title: 'URL slug',
+      description: `The URL-friendly title that's generated out of the 'title' field`,
       type: 'slug',
       options: {
-        source: 'name',
-        maxLength: 96,
+        source: 'title',
+        slugify: input => input.toLowerCase().replace(/\s+/g, '-').slice(0, 200),
       },
     },
     {
-      name: 'image',
-      title: 'Image',
+      name: 'imageUnsplash',
+      title: 'Unsplash',
+      type: 'ImageUnsplash',
+    },
+    {
+      name: 'imageMain',
+      title: 'Main image',
+      type: 'image',
+      options: {
+        hotspot: true,
+      },
+    },
+    {
+      name: 'imageScreenshot',
+      title: 'Screenshot',
+      description: `A screenshot, if relevant.`,
+      type: 'image',
+      options: {
+        hotspot: true,
+      },
+    },
+    {
+      name: 'imageSoMe',
+      title: 'Image Social Media',
+      description: `Image used for SoMe preview.`,
       type: 'image',
       options: {
         hotspot: true,
