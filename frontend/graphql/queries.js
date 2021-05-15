@@ -39,11 +39,56 @@ export const allPostQuery = gql`
       author {
         __typename
         ... on Author {
-          name
+          title
           slug {
             current
           }
+          imageUnsplash {
+            url
+            useImageFromUnsplash
+            onwersName
+            profileUnsplash
+            profileInstagram
+          }
           imageMain {
+            asset {
+              url
+              altText
+              title
+            }
+            hotspot {
+              x
+              y
+              height
+              width
+            }
+            crop {
+              top
+              bottom
+              left
+              right
+            }
+          }
+          imageScreenshot {
+            asset {
+              url
+              altText
+              title
+            }
+            hotspot {
+              x
+              y
+              height
+              width
+            }
+            crop {
+              top
+              bottom
+              left
+              right
+            }
+          }
+          imageSoMe {
             asset {
               url
               altText
@@ -148,11 +193,56 @@ export const postQuery = gql`
       author {
         __typename
         ... on Author {
-          name
+          title
           slug {
             current
           }
+          imageUnsplash {
+            url
+            useImageFromUnsplash
+            onwersName
+            profileUnsplash
+            profileInstagram
+          }
           imageMain {
+            asset {
+              url
+              altText
+              title
+            }
+            hotspot {
+              x
+              y
+              height
+              width
+            }
+            crop {
+              top
+              bottom
+              left
+              right
+            }
+          }
+          imageScreenshot {
+            asset {
+              url
+              altText
+              title
+            }
+            hotspot {
+              x
+              y
+              height
+              width
+            }
+            crop {
+              top
+              bottom
+              left
+              right
+            }
+          }
+          imageSoMe {
             asset {
               url
               altText

@@ -1,4 +1,5 @@
 import { MdStar } from 'react-icons/md';
+import { replaceSpecialChars } from '../../../frontend/src/utils/replaceSpecialCharsUtil';
 
 export default {
   name: 'Portfolio',
@@ -19,7 +20,8 @@ export default {
       type: 'slug',
       options: {
         source: 'title',
-        slugify: input => input.toLowerCase().replace(/\s+/g, '-').slice(0, 200),
+        slugify: input =>
+          replaceSpecialChars(input).toLowerCase().replace(/\s+/g, '-').slice(0, 200),
       },
     },
     {

@@ -1,4 +1,5 @@
 import { MdAccountCircle } from 'react-icons/md';
+import { replaceSpecialChars } from '../../../frontend/src/utils/replaceSpecialCharsUtil';
 
 export default {
   name: 'Author',
@@ -7,7 +8,7 @@ export default {
   icon: MdAccountCircle,
   fields: [
     {
-      name: 'name',
+      name: 'title',
       title: 'Name',
       type: 'string',
     },
@@ -18,7 +19,8 @@ export default {
       type: 'slug',
       options: {
         source: 'title',
-        slugify: input => input.toLowerCase().replace(/\s+/g, '-').slice(0, 200),
+        slugify: input =>
+          replaceSpecialChars(input).toLowerCase().replace(/\s+/g, '-').slice(0, 200),
       },
     },
     {
@@ -68,7 +70,7 @@ export default {
   ],
   preview: {
     select: {
-      title: 'name',
+      title: 'title',
       media: 'image',
     },
   },

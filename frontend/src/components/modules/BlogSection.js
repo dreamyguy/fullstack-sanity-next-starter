@@ -26,6 +26,10 @@ const BlogSection = ({ pageType, items }) => (
                 item.imageUnsplash?.url && item.imageUnsplash?.useImageFromUnsplash
                   ? item.imageUnsplash?.url
                   : item.imageMain?.asset?.url || '';
+              const imageAuthorUrl =
+                item.author?.imageUnsplash?.url && item.author?.imageUnsplash?.useImageFromUnsplash
+                  ? item.author?.imageUnsplash?.url
+                  : item.author?.imageMain?.asset?.url || '';
               const timeToRead = readingTime(item.bodyRaw);
               return (
                 <div key={item._id} className="flex flex-col rounded-lg shadow-lg overflow-hidden">
@@ -59,23 +63,26 @@ const BlogSection = ({ pageType, items }) => (
                       </Link>
                     </div>
                     <div className="mt-6 flex items-center">
-                      {item.author?.imageMain?.asset?.url && (
+                      {imageAuthorUrl && (
                         <div className="flex-shrink-0">
-                          <Link href={`/about/${item.slug?.current}`}>
+                          <Link href={`/about/${item.author?.slug?.current}`}>
                             <a className="blog">
                               <img
                                 className="h-10 w-10 rounded-full"
-                                src={item.author?.imageMain?.asset?.url}
-                                alt={item.author?.name}
+                                src={imageAuthorUrl}
+                                alt={item.author?.title}
                               />
                             </a>
                           </Link>
                         </div>
                       )}
-                      <div className={classNames(item.author?.imageMain?.asset?.url && 'ml-3')}>
+                      <div className={classNames(imageAuthorUrl && 'ml-3')}>
                         <p className="text-sm font-medium text-gray-900">
-                          <a href={item.author?.slug?.current} className="hover:underline">
-                            {item.author?.name}
+                          <a
+                            href={`/about/${item.author?.slug?.current}`}
+                            className="hover:underline"
+                          >
+                            {item.author?.title}
                           </a>
                         </p>
                         <div className="flex space-x-1 text-sm text-gray-500">
