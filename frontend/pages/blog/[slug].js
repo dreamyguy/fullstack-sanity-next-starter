@@ -3,15 +3,16 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import Link from 'next/link';
 import Head from 'next/head';
-import BlockContent from '@sanity/block-content-to-react';
 
 // Import data
 import { getAllPost, getPost, getSiteSettings } from '../../graphql/requests';
 
+// Components
+import BlogPost from '../../src/components/modules/BlogPost';
+
 // Import utils
-import { isNotEmptyArray, isNotEmptyObject } from '../../src/utils/isEmptyUtil';
+import { isNotEmptyArray } from '../../src/utils/isEmptyUtil';
 import sortArrayByKey from '../../src/utils/sortArrayByKeyUtil';
-import serializers from '../../src/components/serializers';
 
 // Use this to debug locally
 const debug = false;
@@ -57,19 +58,6 @@ export async function getStaticProps({ params }) {
   };
 }
 
-const Post = ({ post }) => {
-  if (post && isNotEmptyObject(post)) {
-    const { bodyRaw, title } = post;
-    return (
-      <>
-        <h1 className="mb-8">{title}</h1>
-        <BlockContent blocks={bodyRaw} serializers={serializers} />
-      </>
-    );
-  }
-  return null;
-};
-
 const Posts = ({ posts }) => {
   const output = [];
   if (posts && isNotEmptyArray(posts)) {
@@ -102,27 +90,19 @@ const DynamicPath = ({
   dataPost,
   dataSiteSettings: { SiteSettings: { title, shortDescription } = {} } = {},
 }) => (
-  <div className="bg-grey-light h-screen w-screen py-6">
-    <div
-      className="
-        relative
-        max-w-xl
-        mx-auto
-      "
-    >
-      <Head>
-        <title>{title}</title>
-        <meta property="description" content={shortDescription} />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-      <main>
-        <h1 className="text-xl font-bold mb-6">{title}</h1>
-        <h2 className="text-xl font-bold mb-6">{shortDescription}</h2>
-        <Post post={dataPost} />
-        <Posts posts={allPost} />
-      </main>
-    </div>
-  </div>
+  <>
+    <Head>
+      <title>{title}</title>
+      <meta property="description" content={shortDescription} />
+      <link rel="icon" href="/favicon.ico" />
+    </Head>
+    <main>
+      <h1 className="text-xl font-bold mb-6">{title}</h1>
+      <h2 className="text-xl font-bold mb-6">{shortDescription}</h2>
+      <BlogPost post={dataPost} />
+      <Posts posts={allPost} />
+    </main>
+  </>
 );
 
 export default DynamicPath;

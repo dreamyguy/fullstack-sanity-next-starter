@@ -102,27 +102,19 @@ const DynamicPath = ({
   dataProject,
   dataSiteSettings: { SiteSettings: { title, shortDescription } = {} } = {},
 }) => (
-  <div className="bg-grey-light h-screen w-screen py-6">
-    <div
-      className="
-        relative
-        max-w-xl
-        mx-auto
-      "
-    >
-      <Head>
-        <title>{title}</title>
-        <meta property="description" content={shortDescription} />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-      <main>
-        <h1 className="text-xl font-bold mb-6">{title}</h1>
-        <h2 className="text-xl font-bold mb-6">{shortDescription}</h2>
-        <Project post={dataProject} />
-        <Projects posts={allProject} />
-      </main>
-    </div>
-  </div>
+  <>
+    <Head>
+      <title>{title}</title>
+      <meta property="description" content={shortDescription} />
+      <link rel="icon" href="/favicon.ico" />
+    </Head>
+    <main>
+      <h1 className="text-xl font-bold mb-6">{title}</h1>
+      <h2 className="text-xl font-bold mb-6">{shortDescription}</h2>
+      <Project post={dataProject} />
+      <Projects posts={allProject} />
+    </main>
+  </>
 );
 
 export default DynamicPath;

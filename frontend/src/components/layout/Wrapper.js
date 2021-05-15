@@ -29,7 +29,7 @@ const Wrapper = ({ pageType, children, settings }) => {
   const { uiDarkMode, uiIsLoading } = useContext(UiContext);
 
   const renderPage = () => (
-    <div className={classnames(uiDarkMode ? 'dark' : '')}>
+    <div className={classnames('antialiased', uiDarkMode ? 'dark' : '')}>
       {pageType !== 'fullscreen' ? (
         <div className="bg-white">
           <div className="relative overflow-hidden">

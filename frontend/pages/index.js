@@ -76,23 +76,13 @@ const Home = ({ dataAllPost, dataAllProject, dataSiteSettings }) => (
     <TestimonialSection pageType="frontpage" />
     <BlogSection pageType="frontpage" items={dataAllPost?.allPost} />
     <CTASection pageType="frontpage" />
-    <div className="bg-grey-light py-6">
-      <div
-        className="
-          relative
-          max-w-xl
-          mx-auto
-        "
-      >
-        <Head>
-          <title>{dataSiteSettings?.SiteSettings?.title}</title>
-          <meta property="description" content={dataSiteSettings?.SiteSettings?.shortDescription} />
-          <link rel="icon" href="/favicon.ico" />
-        </Head>
-        {/* <DividerWithTitle align="left" title="Projects" classes="mb-8" /> */}
-        {/* <Projects projects={dataAllProject?.allProject} /> */}
-      </div>
-    </div>
+    <Head>
+      <title>{dataSiteSettings?.SiteSettings?.title}</title>
+      <meta property="description" content={dataSiteSettings?.SiteSettings?.shortDescription} />
+      <link rel="icon" href="/favicon.ico" />
+    </Head>
+    {/* <DividerWithTitle align="left" title="Projects" classes="mb-8" /> */}
+    {/* <Projects projects={dataAllProject?.allProject} /> */}
   </Wrapper>
 );
 
