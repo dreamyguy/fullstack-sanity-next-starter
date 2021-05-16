@@ -74,7 +74,12 @@ const Home = ({ dataAllPost, dataAllProject, dataSiteSettings }) => (
     {/* <FeatureSectionWithScreenshot pageType="frontpage" /> */}
     {/* <FeatureSectionWithGrid pageType="frontpage" /> */}
     <TestimonialSection pageType="frontpage" />
-    <BlogSection pageType="frontpage" items={dataAllPost?.allPost} />
+    <BlogSection
+      items={dataAllPost?.allPost}
+      sectionTitle="Blog"
+      sectionSubtitle="What's up in my world"
+      sectionDescription="Articles on JavaScript and beyond, music news, musings on Fantasy books and small life events from an average dude kind of things."
+    />
     <CTASection pageType="frontpage" />
     <Head>
       <title>{dataSiteSettings?.SiteSettings?.title}</title>

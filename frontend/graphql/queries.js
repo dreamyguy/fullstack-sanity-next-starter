@@ -28,6 +28,8 @@ export const allPostQuery = gql`
   query AllPostQuery {
     allPost {
       _id
+      _createdAt
+      _updatedAt
       title
       slug {
         current
@@ -35,6 +37,9 @@ export const allPostQuery = gql`
       shortDescription
       categories {
         title
+        slug {
+          current
+        }
       }
       author {
         __typename
@@ -184,6 +189,8 @@ export const postQuery = gql`
   query PostQuery($id: ID!) {
     Post(id: $id) {
       _id
+      _createdAt
+      _updatedAt
       title
       slug {
         current
@@ -191,6 +198,9 @@ export const postQuery = gql`
       shortDescription
       categories {
         title
+        slug {
+          current
+        }
       }
       author {
         __typename

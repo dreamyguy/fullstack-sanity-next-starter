@@ -1,18 +1,15 @@
 /* eslint-disable react/destructuring-assignment */
 /* eslint-disable no-unused-expressions */
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import Link from 'next/link';
 import Head from 'next/head';
 
 // Import data
 import { getAllPost, getPost, getSiteSettings } from '../../graphql/requests';
 
 // Components
+import Wrapper from '../../src/components/layout/Wrapper';
 import BlogPost from '../../src/components/modules/BlogPost';
-
-// Import utils
-import { isNotEmptyArray } from '../../src/utils/isEmptyUtil';
-import sortArrayByKey from '../../src/utils/sortArrayByKeyUtil';
+import BlogSection from '../../src/components/modules/BlogSection';
 
 // Use this to debug locally
 const debug = false;
@@ -58,51 +55,21 @@ export async function getStaticProps({ params }) {
   };
 }
 
-const Posts = ({ posts }) => {
-  const output = [];
-  if (posts && isNotEmptyArray(posts)) {
-    const postsSorted = sortArrayByKey(posts, 'title', 'asc');
-    postsSorted.map(d => {
-      const {
-        _id: id,
-        title,
-        slug: { current: theSlug },
-      } = d;
-      output.push(
-        <li key={id}>
-          <Link href={`/blog/${theSlug}`}>
-            <a className="w-full inline-block px-4 py-4 sm:px-6">{title}</a>
-          </Link>
-        </li>,
-      );
-      return null;
-    });
-  }
-  return (
-    <div className="bg-white shadow overflow-hidden sm:rounded-md mb-6">
-      <ul className="divide-y divide-grey-light">{output}</ul>
-    </div>
-  );
-};
-
-const DynamicPath = ({
-  dataAllPost: { allPost } = {},
-  dataPost,
-  dataSiteSettings: { SiteSettings: { title, shortDescription } = {} } = {},
-}) => (
-  <>
+const DynamicPath = ({ dataAllPost, dataPost, dataSiteSettings }) => (
+  <Wrapper pageType="frontpage" settings={dataSiteSettings?.SiteSettings}>
     <Head>
-      <title>{title}</title>
-      <meta property="description" content={shortDescription} />
+      <title>{dataSiteSettings?.SiteSettings?.title}</title>
+      <meta property="description" content={dataSiteSettings?.SiteSettings?.shortDescription} />
       <link rel="icon" href="/favicon.ico" />
     </Head>
-    <main>
-      <h1 className="text-xl font-bold mb-6">{title}</h1>
-      <h2 className="text-xl font-bold mb-6">{shortDescription}</h2>
-      <BlogPost post={dataPost} />
-      <Posts posts={allPost} />
-    </main>
-  </>
+    <BlogPost item={dataPost} />
+    <BlogSection
+      items={dataAllPost?.allPost}
+      sectionTitle="More from the blog"
+      sectionSubtitle=""
+      sectionDescription=""
+    />
+  </Wrapper>
 );
 
 export default DynamicPath;

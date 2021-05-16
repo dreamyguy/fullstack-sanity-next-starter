@@ -1,3 +1,7 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
+
+.prose > :first-child > :first-child {
+  margin-top: 0;
+}
