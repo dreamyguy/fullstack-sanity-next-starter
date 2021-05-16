@@ -17,6 +17,11 @@ const HeroSection = ({ pageType, settings }) => (
           <div className="lg:grid lg:grid-cols-2 lg:gap-8">
             <div className="mx-auto max-w-md px-4 sm:max-w-2xl sm:px-6 sm:text-center lg:px-0 lg:text-left lg:flex lg:items-center">
               <div className="bg-gray-900 bg-opacity-90 rounded-3xl p-8 my-24">
+                <img
+                  className="h-24 w-24 sm:h-32 sm:w-32 rounded-full ring-4 ring-gray-900 -mt-32 mx-auto"
+                  src="https://images.unsplash.com/photo-1463453091185-61582044d556?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=facearea&amp;facepad=8&amp;w=1024&amp;h=1024&amp;q=80"
+                  alt=""
+                />
                 <h1 className="tracking-tight font-extrabold text-white">
                   <span className="block text-4xl sm:text-6xl xl:text-6xl">{settings?.title}</span>
                   <span className="pb-3 block bg-clip-text text-transparent bg-gradient-to-r from-teal-200 to-cyan-400 sm:pb-5 text-2xl sm:text-4xl xl:text-4xl">
