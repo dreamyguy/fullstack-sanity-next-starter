@@ -117,7 +117,7 @@ const Footer = ({ pageType, settings }) => {
           <div className="space-y-8 xl:col-span-1">
             <img
               className="h-10"
-              src="https://tailwindui.com/img/logos/workflow-mark-gray-300.svg"
+              src="/images/wallace-sidhree-logo-gray-300.svg"
               alt="Company name"
             />
             <p className="text-gray-500 text-base">
