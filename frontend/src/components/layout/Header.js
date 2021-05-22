@@ -20,11 +20,13 @@ const MainMenuDesktop = ({ items }) => {
   const output = [];
   if (items && isNotEmptyArray(items)) {
     items.map(item => {
-      output.push(
-        <Link key={item._key} href={item.path}>
-          <a className="text-base font-medium text-white hover:text-gray-300">{item.title}</a>
-        </Link>,
-      );
+      if (item.active) {
+        output.push(
+          <Link key={item._key} href={item.path}>
+            <a className="text-base font-medium text-white hover:text-gray-300">{item.title}</a>
+          </Link>,
+        );
+      }
       return null;
     });
   }
@@ -35,13 +37,15 @@ const MainMenuMobile = ({ items }) => {
   const output = [];
   if (items && isNotEmptyArray(items)) {
     items.map(item => {
-      output.push(
-        <Link key={item._key} href={item.path}>
-          <a className="block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:bg-gray-50">
-            {item.title}
-          </a>
-        </Link>,
-      );
+      if (item.active) {
+        output.push(
+          <Link key={item._key} href={item.path}>
+            <a className="block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:bg-gray-50">
+              {item.title}
+            </a>
+          </Link>,
+        );
+      }
       return null;
     });
   }

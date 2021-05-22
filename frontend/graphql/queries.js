@@ -14,6 +14,7 @@ export const siteSettingsQuery = gql`
       mainMenu {
         title
         path
+        active
       }
     }
   }

@@ -22,5 +22,10 @@ export default {
           return !name.match(/^[/a-zA-Z0-9_-]*$/g) ? 'The string must be URL-friendly!' : true;
         }).error(),
     },
+    {
+      name: 'active',
+      title: 'Active Status',
+      type: 'boolean',
+    },
   ],
 };
