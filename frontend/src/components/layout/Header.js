@@ -20,10 +20,12 @@ const navigation = [
   { name: 'Blog', href: '#' },
 ];
 
+const debug = false;
+
 const Header = ({ pageType }) => {
   const { uiIsLoading, setUiDarkMode, uiDarkMode } = useContext(UiContext);
+  debug && console.log(`[pageType]: header ${pageType}`);
 
-  console.log(`[pageType]: header ${pageType}`);
   return (
     <header className={classnames('relative')}>
       <Popover as="header" className="relative z-10">

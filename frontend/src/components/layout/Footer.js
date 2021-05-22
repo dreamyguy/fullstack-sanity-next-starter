@@ -96,10 +96,12 @@ const fiftyFifty = chance(50);
 //   ],
 // };
 
+const debug = false;
+
 const Footer = ({ pageType, settings }) => {
   const [emoji, setEmoji] = useState(null);
   const [emojiAria, setEmojiAria] = useState(null);
-  console.log(`[pageType]: footer ${pageType}`);
+  debug && console.log(`[pageType]: footer ${pageType}`);
 
   useEffect(() => {
     setEmoji(fiftyFifty ? ' 👨‍💻' : ' 👨‍🎤');
