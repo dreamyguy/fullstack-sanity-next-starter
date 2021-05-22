@@ -42,7 +42,7 @@ const CTASection = ({ ctaText, ctaUrl, description, heading, imageUrl, pageType,
 );
 
 CTASection.propTypes = {
-  pageType: PropTypes.oneOf(['blog', 'frontpage', 'music', 'portfolio', 'project']),
+  pageType: PropTypes.oneOf(['about', 'blog', 'frontpage', 'music', 'portfolio', 'project']),
 };
 
 export default CTASection;

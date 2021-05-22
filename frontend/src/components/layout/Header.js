@@ -33,7 +33,7 @@ const Header = ({ pageType }) => {
       <Popover as="header" className="relative z-10">
         {({ open }) => (
           <>
-            <div className="bg-gray-900 pt-6">
+            <div className={classnames('bg-gray-900', 'pt-5', pageType !== 'frontpage' && 'pb-4')}>
               <nav
                 className="relative max-w-7xl mx-auto flex items-center justify-between px-4 sm:px-6"
                 aria-label="Global"
@@ -146,7 +146,7 @@ const Header = ({ pageType }) => {
 };
 
 Header.propTypes = {
-  pageType: PropTypes.oneOf(['blog', 'frontpage', 'music', 'portfolio', 'project']),
+  pageType: PropTypes.oneOf(['about', 'blog', 'frontpage', 'music', 'portfolio', 'project']),
 };
 
 export default Header;

@@ -225,7 +225,7 @@ const Footer = ({ pageType, settings }) => {
 
 Footer.propTypes = {
   settings: PropTypes.object,
-  pageType: PropTypes.oneOf(['blog', 'frontpage', 'music', 'portfolio', 'project']),
+  pageType: PropTypes.oneOf(['about', 'blog', 'frontpage', 'music', 'portfolio', 'project']),
 };
 
 export default Footer;

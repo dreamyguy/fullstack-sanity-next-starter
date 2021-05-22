@@ -53,8 +53,8 @@ export async function getStaticProps({ params }) {
   };
 }
 
-const DynamicPath = ({ dataAllPost, dataPost, dataSiteSettings }) => (
-  <Wrapper pageType="frontpage" settings={dataSiteSettings?.SiteSettings}>
+const PortfolioPage = ({ dataAllPost, dataPost, dataSiteSettings }) => (
+  <Wrapper pageType="portfolio" settings={dataSiteSettings?.SiteSettings}>
     <Head>
       <title>{dataSiteSettings?.SiteSettings?.title}</title>
       <meta property="description" content={dataSiteSettings?.SiteSettings?.shortDescription} />
@@ -70,4 +70,4 @@ const DynamicPath = ({ dataAllPost, dataPost, dataSiteSettings }) => (
   </Wrapper>
 );
 
-export default DynamicPath;
+export default PortfolioPage;

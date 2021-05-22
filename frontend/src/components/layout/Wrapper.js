@@ -43,7 +43,7 @@ const Wrapper = ({ pageType, children, settings }) => {
   );
 
   return (
-    <div id="wrapper-outer">
+    <div id="wrapper">
       {uiIsLoading ? (
         <Loading loading />
       ) : errors && isNotEmptyArray(errors) ? (
@@ -57,7 +57,7 @@ const Wrapper = ({ pageType, children, settings }) => {
 
 Wrapper.propTypes = {
   children: PropTypes.node,
-  pageType: PropTypes.oneOf(['blog', 'frontpage', 'music', 'portfolio', 'project']),
+  pageType: PropTypes.oneOf(['about', 'blog', 'frontpage', 'music', 'portfolio', 'project']),
 };
 
 export default Wrapper;
