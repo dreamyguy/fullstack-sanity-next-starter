@@ -103,7 +103,7 @@ const Footer = ({ pageType, settings }) => {
   console.log(`[pageType]: footer ${pageType}`);
 
   useEffect(() => {
-    setEmoji(fiftyFifty ? '👨‍💻' : '👨‍🎤');
+    setEmoji(fiftyFifty ? ' 👨‍💻' : ' 👨‍🎤');
     setEmojiAria(fiftyFifty ? 'man technologist' : 'man singer');
   }, []);
 
@@ -213,8 +213,8 @@ const Footer = ({ pageType, settings }) => {
               style={{ lineHeight: 1 }}
             >
               {emoji}
-            </span>{' '}
-            {settings?.title}. All rights reserved.
+            </span>
+            <span className="ml-2">{settings?.title}. All rights reserved.</span>
           </p>
         </div>
       </div>
