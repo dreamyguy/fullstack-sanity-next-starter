@@ -1,6 +1,8 @@
 import React, { Fragment, useContext } from 'react';
 import PropTypes from 'prop-types';
+import { v4 as uuidv4 } from 'uuid';
 import classnames from 'classnames';
+import Link from 'next/link';
 
 // Import TWUI resources
 import { Popover, Transition } from '@headlessui/react';
@@ -14,10 +16,10 @@ import Toggler from './../primitives/Toggler/Toggler';
 
 // Data - mock
 const navigation = [
-  { name: 'Projects', href: '#' },
-  { name: 'Music', href: '#' },
-  { name: 'Portfolio', href: '#' },
-  { name: 'Blog', href: '#' },
+  { name: 'Projects', href: '/senior-frontend-developer/projects/' },
+  { name: 'Music', href: '/music/' },
+  { name: 'Portfolio', href: '/senior-frontend-developer/portfolio/' },
+  { name: 'Blog', href: '/blog/' },
 ];
 
 const debug = false;
@@ -38,14 +40,16 @@ const Header = ({ pageType }) => {
               >
                 <div className="flex items-center flex-1">
                   <div className="flex items-center justify-between w-full md:w-auto">
-                    <a href="#">
-                      <span className="sr-only">Workflow</span>
-                      <img
-                        className="h-8 w-auto sm:h-10"
-                        src="/images/wallace-sidhree-logo-teal-200-cyan-400.svg"
-                        alt=""
-                      />
-                    </a>
+                    <Link href="/">
+                      <a>
+                        <span className="sr-only">Wallace Sidhr&eacute;e</span>
+                        <img
+                          className="h-8 w-auto sm:h-10"
+                          src="/images/wallace-sidhree-logo-teal-200-cyan-400.svg"
+                          alt=""
+                        />
+                      </a>
+                    </Link>
                     <div className="-mr-2 flex items-center md:hidden">
                       <Popover.Button className="bg-gray-900 rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:bg-gray-800 focus:outline-none focus:ring-2 focus-ring-inset focus:ring-white">
                         <span className="sr-only">Open main menu</span>
@@ -55,13 +59,11 @@ const Header = ({ pageType }) => {
                   </div>
                   <div className="hidden space-x-8 md:flex md:ml-10">
                     {navigation.map(item => (
-                      <a
-                        key={item.name}
-                        href={item.href}
-                        className="text-base font-medium text-white hover:text-gray-300"
-                      >
-                        {item.name}
-                      </a>
+                      <Link key={uuidv4()} href={item.href}>
+                        <a className="text-base font-medium text-white hover:text-gray-300">
+                          {item.name}
+                        </a>
+                      </Link>
                     ))}
                   </div>
                 </div>
