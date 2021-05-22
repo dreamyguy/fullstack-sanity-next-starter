@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { Fragment, useContext } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';

@@ -1,5 +1,3 @@
-/* eslint-disable no-nested-ternary */
-
 import sortArrayByKey from './sortArrayByKeyUtil';
 import {
   usersUnsorted,

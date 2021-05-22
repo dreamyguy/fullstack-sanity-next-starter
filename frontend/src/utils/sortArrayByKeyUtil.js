@@ -1,5 +1,3 @@
-/* eslint-disable no-nested-ternary */
-
 // Order array by key
 // ------------------------------------------------------------
 const sortArrayByKey = (array, key, ascdesc) =>

@@ -1,6 +1,4 @@
 /* eslint-disable react/no-unescaped-entities */
-/* eslint-disable no-nested-ternary */
-/* eslint-disable jsx-a11y/anchor-is-valid */
 // ! This HOC component's purpose:
 // - Set data to relevant context(s)
 // - Wrap the layout around all pages

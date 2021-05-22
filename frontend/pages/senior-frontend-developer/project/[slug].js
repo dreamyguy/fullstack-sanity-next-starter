@@ -1,6 +1,4 @@
 /* eslint-disable react/destructuring-assignment */
-/* eslint-disable no-unused-expressions */
-/* eslint-disable jsx-a11y/anchor-is-valid */
 import Link from 'next/link';
 import Head from 'next/head';
 import BlockContent from '@sanity/block-content-to-react';

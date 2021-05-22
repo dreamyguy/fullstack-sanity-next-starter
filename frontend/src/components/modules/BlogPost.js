@@ -1,5 +1,3 @@
-/* eslint-disable no-nested-ternary */
-/* eslint-disable jsx-a11y/anchor-is-valid */
 import { v4 as uuidv4 } from 'uuid';
 import BlockContent from '@sanity/block-content-to-react';
 import classNames from 'classnames';
