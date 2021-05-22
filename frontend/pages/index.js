@@ -80,7 +80,15 @@ const Home = ({ dataAllPost, dataAllProject, dataSiteSettings }) => (
       sectionSubtitle="What's up in my world"
       sectionDescription="Articles on JavaScript and beyond, music news, musings on Fantasy books and small life events from an average dude kind of things."
     />
-    <CTASection pageType="frontpage" />
+    <CTASection
+      ctaText="Show me more!"
+      ctaUrl="/music/"
+      description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Et, egestas tempus tellus etiam sed. Quam a scelerisque amet ullamcorper eu enim et fermentum, augue. Aliquet amet volutpat quisque ut interdum tincidunt duis."
+      heading="Have a listen!"
+      imageUrl="/images/Wallace-Sidhree---Futures-Past---Progressive-Rock---1200.jpg"
+      pageType="frontpage"
+      subHeading="I'm also a musician 👨‍🎤"
+    />
     <Head>
       <title>{dataSiteSettings?.SiteSettings?.title}</title>
       <meta property="description" content={dataSiteSettings?.SiteSettings?.shortDescription} />
