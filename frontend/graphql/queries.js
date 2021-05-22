@@ -9,9 +9,12 @@ export const siteSettingsQuery = gql`
       title
       shortDescription
       description
-      blogPath
       animateNumbers
       darkMode
+      mainMenu {
+        title
+        path
+      }
     }
   }
 `;

@@ -31,7 +31,7 @@ const Wrapper = ({ pageType, children, settings }) => {
       {pageType !== 'fullscreen' ? (
         <div className="bg-white">
           <div className="relative overflow-hidden">
-            <Header pageType={pageType} />
+            <Header pageType={pageType} settings={settings} />
             <Main pageType={pageType}>{children}</Main>
             <Footer pageType={pageType} settings={settings} />
           </div>

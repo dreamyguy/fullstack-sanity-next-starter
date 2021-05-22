@@ -50,17 +50,10 @@ export default {
       type: 'blockContent',
     },
     {
-      name: 'blogPath',
-      title: 'Blog Path',
-      type: 'string',
-      validation: Rule =>
-        Rule.custom(name => {
-          if (typeof name === 'undefined') {
-            return true; // Allow undefined values, because this is not required
-          }
-          // This would crash if we didn't check for undefined values first
-          return !name.match(/^[a-zA-Z0-9_-]*$/g) ? 'The string must be URL-friendly!' : true;
-        }).error(),
+      name: 'mainMenu',
+      title: 'Main menu',
+      description: 'Define the links and their labels for the main menu at the header',
+      type: 'Menu',
     },
     {
       name: 'animateNumbers',

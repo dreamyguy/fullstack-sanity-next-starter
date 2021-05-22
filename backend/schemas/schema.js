@@ -30,6 +30,8 @@ import Project from './development/docProject';
 // - Settings
 import Contact from './settings/objContact';
 import ImageUnsplash from './settings/objImageUnsplash';
+import Menu from './settings/arrMenu';
+import MenuItem from './settings/objMenuItem';
 import siteSettings from './settings/docSiteSettings';
 // - Internals, used by Sanity
 import blockContent from './internals/arrBlockContent';
@@ -47,6 +49,8 @@ const types = [
   Contact,
   ReleaseURLs,
   ImageUnsplash,
+  Menu,
+  MenuItem,
   // - Blog
   Author,
   Category,

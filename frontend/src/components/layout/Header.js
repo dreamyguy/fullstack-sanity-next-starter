@@ -1,6 +1,5 @@
 import React, { Fragment, useContext } from 'react';
 import PropTypes from 'prop-types';
-import { v4 as uuidv4 } from 'uuid';
 import classnames from 'classnames';
 import Link from 'next/link';
 
@@ -13,18 +12,43 @@ import { UiContext } from '../../contexts';
 
 // Components
 import Toggler from './../primitives/Toggler/Toggler';
-
-// Data - mock
-const navigation = [
-  { name: 'Projects', href: '/senior-frontend-developer/projects/' },
-  { name: 'Music', href: '/music/' },
-  { name: 'Portfolio', href: '/senior-frontend-developer/portfolio/' },
-  { name: 'Blog', href: '/blog/' },
-];
+import { isNotEmptyArray } from '../../utils/isEmptyUtil';
 
 const debug = false;
 
-const Header = ({ pageType }) => {
+const MainMenuDesktop = ({ items }) => {
+  const output = [];
+  if (items && isNotEmptyArray(items)) {
+    items.map(item => {
+      output.push(
+        <Link key={item._key} href={item.path}>
+          <a className="text-base font-medium text-white hover:text-gray-300">{item.title}</a>
+        </Link>,
+      );
+      return null;
+    });
+  }
+  return output;
+};
+
+const MainMenuMobile = ({ items }) => {
+  const output = [];
+  if (items && isNotEmptyArray(items)) {
+    items.map(item => {
+      output.push(
+        <Link key={item._key} href={item.path}>
+          <a className="block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:bg-gray-50">
+            {item.title}
+          </a>
+        </Link>,
+      );
+      return null;
+    });
+  }
+  return output;
+};
+
+const Header = ({ pageType, settings }) => {
   const { uiIsLoading, setUiDarkMode, uiDarkMode } = useContext(UiContext);
   debug && console.log(`[pageType]: header ${pageType}`);
 
@@ -58,13 +82,7 @@ const Header = ({ pageType }) => {
                     </div>
                   </div>
                   <div className="hidden space-x-8 md:flex md:ml-10">
-                    {navigation.map(item => (
-                      <Link key={uuidv4()} href={item.href}>
-                        <a className="text-base font-medium text-white hover:text-gray-300">
-                          {item.name}
-                        </a>
-                      </Link>
-                    ))}
+                    <MainMenuDesktop items={settings.mainMenu} />
                   </div>
                 </div>
                 {!uiIsLoading && (
@@ -116,15 +134,7 @@ const Header = ({ pageType }) => {
                   </div>
                   <div className="pt-5 pb-6">
                     <div className="px-2 space-y-1">
-                      {navigation.map(item => (
-                        <a
-                          key={item.name}
-                          href={item.href}
-                          className="block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:bg-gray-50"
-                        >
-                          {item.name}
-                        </a>
-                      ))}
+                      <MainMenuMobile items={settings.mainMenu} />
                     </div>
                     <div className="mt-6 px-5">
                       <a
